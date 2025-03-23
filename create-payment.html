@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة دفعة جديدة</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- إضافة خط Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a class="text-align-center" href="#">
+                    <img src="img/logo/logo.png" alt="Logo" height="35">
+                </a>
+            </div>
+
+            <ul class="list-unstyled components">
+                <!-- المبيعات -->
+                <li>
+                    <a href="#salesSubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-cart"></i> المبيعات
+                    </a>
+                    <ul class="collapse list-unstyled" id="salesSubmenu">
+                        <li><a href="create-invoice.html"><i class="bi bi-file-text"></i> فاتورة مبيعات</a></li>
+                        <li><a href="invoices-list.html"><i class="bi bi-gear"></i> إدارة الفواتير</a></li>
+                        <li><a href="customer-payments.html"><i class="bi bi-cash"></i> مدفوعات العملاء</a></li>
+                    </ul>
+                </li>
+
+                <!-- المشتريات -->
+                <li>
+                    <a href="#purchasesSubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-bag"></i> المشتريات
+                    </a>
+                    <ul class="collapse list-unstyled" id="purchasesSubmenu">
+                        <li><a href="#"><i class="bi bi-cart-plus"></i> طلبات الشراء</a></li>
+                        <li><a href="#"><i class="bi bi-receipt"></i> فواتير الشراء</a></li>
+                        <li><a href="#"><i class="bi bi-people"></i> إدارة الموردين</a></li>
+                    </ul>
+                </li>
+
+                <!-- المخازن -->
+                <li>
+                    <a href="#inventorySubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-box-seam"></i> المخازن
+                    </a>
+                    <ul class="collapse list-unstyled" id="inventorySubmenu">
+                        <li><a href="#"><i class="bi bi-box"></i> المنتجات</a></li>
+                        <li><a href="#"><i class="bi bi-list-check"></i> إدارة الجرد</a></li>
+                        <li><a href="#"><i class="bi bi-arrow-left-right"></i> حركة المخزون</a></li>
+                    </ul>
+                </li>
+
+                <!-- الخزينة -->
+                <li>
+                    <a href="#treasurySubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-cash-stack"></i> الخزينة
+                    </a>
+                    <ul class="collapse list-unstyled" id="treasurySubmenu">
+                        <li><a href="#"><i class="bi bi-arrow-down"></i> الإيرادات</a></li>
+                        <li><a href="#"><i class="bi bi-arrow-up"></i> المصروفات</a></li>
+                        <li><a href="#"><i class="bi bi-wallet"></i> الرصيد الحالي</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Right Side: Menu Button and Logo -->
+                    <div class="d-flex align-items-center">
+                        <button id="sidebarCollapse" class="btn btn-link text-dark d-lg-none me-2">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                        <button id="sidebarCollapseDesktop" class="btn btn-link text-dark d-none d-lg-block me-2">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Center: Page Title -->
+                    <div class="d-none d-md-block mx-auto">
+                        <h4 class="mb-0">إضافة دفعة جديدة</h4>
+                    </div>
+
+                    <!-- Left Side: Actions -->
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="btn btn-primary" id="savePaymentButton">
+                            <i class="bi bi-save"></i> حفظ الدفعة
+                        </button>
+                        <a href="customer-payments.html" class="btn btn-secondary">
+                            <i class="bi bi-arrow-right"></i> رجوع
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Payment Content -->
+            <div class="container-fluid dashboard-content">
+                <!-- Payment Details -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">تفاصيل الدفعة</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="paymentNumber" class="form-label">رقم الدفعة</label>
+                                        <input type="text" class="form-control" id="paymentNumber" value="PAY-004" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="paymentDate" class="form-label">تاريخ الدفعة</label>
+                                        <input type="date" class="form-control" id="paymentDate">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="customer" class="form-label">العميل</label>
+                                        <select class="form-select" id="customer">
+                                            <option selected>اختر العميل</option>
+                                            <option value="1">أحمد محمد</option>
+                                            <option value="2">شركة السلام</option>
+                                            <option value="3">علي محمود</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="invoice" class="form-label">الفاتورة</label>
+                                        <select class="form-select" id="invoice">
+                                            <option selected>اختر الفاتورة</option>
+                                            <option value="INV-001">INV-001</option>
+                                            <option value="INV-002">INV-002</option>
+                                            <option value="INV-003">INV-003</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">تفاصيل إضافية</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="amount" class="form-label">المبلغ</label>
+                                        <input type="number" class="form-control" id="amount" value="0">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="paymentMethod" class="form-label">طريقة الدفع</label>
+                                        <select class="form-select" id="paymentMethod">
+                                            <option selected>اختر طريقة الدفع</option>
+                                            <option value="cash">نقدي</option>
+                                            <option value="bank_transfer">تحويل بنكي</option>
+                                            <option value="credit_card">بطاقة ائتمان</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="status" class="form-label">الحالة</label>
+                                        <select class="form-select" id="status">
+                                            <option value="paid" selected>مدفوعة</option>
+                                            <option value="pending">معلقة</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="notes" class="form-label">ملاحظات</label>
+                                        <textarea class="form-control" id="notes" rows="3"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // JavaScript لتأكيد حفظ الدفعة باستخدام SweetAlert2
+        document.getElementById('savePaymentButton').addEventListener('click', function () {
+            Swal.fire({
+                title: 'حفظ الدفعة',
+                text: 'تم حفظ الدفعة بنجاح!',
+                icon: 'success',
+                confirmButtonText: 'موافق'
+            }).then(() => {
+                window.location.href = 'customer-payments.html'; // الرجوع لصفحة مدفوعات العملاء بعد الحفظ
+            });
+        });
+    </script>
+</body>
+
+</html>
