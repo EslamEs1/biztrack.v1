@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>إضافة مستودع جديد</title>
+        <title>إضافة دفعة جديدة للمورد</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
         <link href="css/sweetalert.css" rel="stylesheet" />
@@ -312,125 +312,126 @@
 
                         <!-- Center: Page Title -->
                         <div class="d-none d-md-block mx-auto">
-                            <h4 class="mb-0">إضافة مستودع جديد</h4>
+                            <h4 class="mb-0">إضافة دفعة جديدة للمورد</h4>
                         </div>
 
                         <!-- Left Side: Actions -->
                         <div class="d-flex align-items-center gap-3">
                             <button
                                 class="btn btn-primary"
-                                id="saveWarehouseButton"
+                                id="savePaymentButton"
                             >
-                                <i class="bi bi-save"></i> حفظ المستودع
+                                <i class="bi bi-save"></i> حفظ الدفعة
                             </button>
-                            <a href="warehouses.html" class="btn btn-secondary">
+                            <a
+                                href="supplier-payments.html"
+                                class="btn btn-secondary"
+                            >
                                 <i class="bi bi-arrow-right"></i> رجوع
                             </a>
                         </div>
                     </div>
                 </nav>
 
-                <!-- Warehouse Content -->
+                <!-- Create Supplier Payment Form -->
                 <div class="container-fluid dashboard-content">
-                    <!-- Warehouse Details -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل المستودع</h5>
-                                    <form>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">بيانات الدفعة</h5>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label
-                                                for="warehouseCode"
+                                                for="supplier"
                                                 class="form-label"
-                                                >كود المستودع</label
+                                                >المورد</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="supplier"
+                                            >
+                                                <option value="SUPP-001">
+                                                    شركة المصرية للتجارة
+                                                </option>
+                                                <option value="SUPP-002">
+                                                    شركة التقدم للتوريدات
+                                                </option>
+                                                <option value="SUPP-003">
+                                                    شركة النور للاستيراد
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label
+                                                for="invoice"
+                                                class="form-label"
+                                                >رقم الفاتورة</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="invoice"
+                                            >
+                                                <option value="PI-001">
+                                                    PI-001
+                                                </option>
+                                                <option value="PI-002">
+                                                    PI-002
+                                                </option>
+                                                <option value="PI-003">
+                                                    PI-003
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label
+                                                for="paymentDate"
+                                                class="form-label"
+                                                >تاريخ الدفع</label
                                             >
                                             <input
-                                                type="text"
+                                                type="date"
                                                 class="form-control"
-                                                id="warehouseCode"
-                                                value="WH-003"
-                                                readonly
+                                                id="paymentDate"
                                             />
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label
-                                                for="warehouseName"
+                                                for="amount"
                                                 class="form-label"
-                                                >اسم المستودع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseName"
-                                                placeholder="أدخل اسم المستودع"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="location"
-                                                class="form-label"
-                                                >الموقع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="location"
-                                                placeholder="أدخل الموقع"
-                                            />
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل إضافية</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="capacity"
-                                                class="form-label"
-                                                >السعة (م²)</label
+                                                >المبلغ</label
                                             >
                                             <input
                                                 type="number"
                                                 class="form-control"
-                                                id="capacity"
-                                                placeholder="أدخل السعة"
+                                                id="amount"
+                                                placeholder="أدخل المبلغ"
                                             />
                                         </div>
+                                    </div>
+                                    <div class="col-md-12">
                                         <div class="mb-3">
                                             <label
-                                                for="contact"
-                                                class="form-label"
-                                                >رقم الاتصال</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="contact"
-                                                placeholder="أدخل رقم الاتصال"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="notes"
+                                                for="paymentNotes"
                                                 class="form-label"
                                                 >ملاحظات</label
                                             >
                                             <textarea
                                                 class="form-control"
-                                                id="notes"
+                                                id="paymentNotes"
                                                 rows="3"
-                                                placeholder="أدخل ملاحظات"
+                                                placeholder="أدخل أي ملاحظات"
                                             ></textarea>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -441,18 +442,30 @@
         <script src="js/sweetalert.js"></script>
         <script src="js/main.js"></script>
         <script>
-            // JavaScript لتأكيد حفظ المستودع
+            // JavaScript لإضافة دفعة جديدة
             document
-                .getElementById("saveWarehouseButton")
+                .getElementById("savePaymentButton")
                 .addEventListener("click", function () {
-                    Swal.fire({
-                        title: "حفظ المستودع",
-                        text: "تم حفظ المستودع بنجاح!",
-                        icon: "success",
-                        confirmButtonText: "موافق",
-                    }).then(() => {
-                        window.location.href = "warehouses.html";
-                    });
+                    const supplier = document.getElementById("supplier").value;
+                    const amount = document.getElementById("amount").value;
+
+                    if (supplier && amount) {
+                        Swal.fire({
+                            title: "إضافة دفعة",
+                            text: "تم إضافة الدفعة بنجاح!",
+                            icon: "success",
+                            confirmButtonText: "موافق",
+                        }).then(() => {
+                            window.location.href = "supplier-payments.html";
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "خطأ",
+                            text: "يرجى ملء جميع الحقول المطلوبة!",
+                            icon: "error",
+                            confirmButtonText: "موافق",
+                        });
+                    }
                 });
         </script>
     </body>

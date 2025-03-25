@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>إضافة مستودع جديد</title>
+        <title>إدارة الإيرادات</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
         <link href="css/sweetalert.css" rel="stylesheet" />
@@ -22,7 +22,6 @@
 
     <body>
         <div class="wrapper">
-            <!-- Sidebar -->
             <!-- Sidebar -->
             <nav id="sidebar">
                 <div class="sidebar-header">
@@ -302,135 +301,110 @@
                             >
                                 <i class="bi bi-list fs-4"></i>
                             </button>
-                            <button
-                                id="sidebarCollapseDesktop"
-                                class="btn btn-link text-dark d-none d-lg-block me-2"
-                            >
-                                <i class="bi bi-list fs-4"></i>
-                            </button>
                         </div>
 
-                        <!-- Center: Page Title -->
-                        <div class="d-none d-md-block mx-auto">
-                            <h4 class="mb-0">إضافة مستودع جديد</h4>
+                        <!-- Center: Search Bar -->
+                        <div
+                            class="d-none d-md-block mx-auto"
+                            style="width: 40%"
+                        >
+                            <div class="input-group">
+                                <input
+                                    type="text"
+                                    class="form-control search-input"
+                                    placeholder="البحث عن إيراد..."
+                                    aria-label="Search"
+                                />
+                                <button
+                                    class="btn btn-outline-secondary"
+                                    type="button"
+                                >
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Left Side: Actions -->
                         <div class="d-flex align-items-center gap-3">
-                            <button
+                            <a
+                                href="create-revenue.html"
                                 class="btn btn-primary"
-                                id="saveWarehouseButton"
                             >
-                                <i class="bi bi-save"></i> حفظ المستودع
-                            </button>
-                            <a href="warehouses.html" class="btn btn-secondary">
-                                <i class="bi bi-arrow-right"></i> رجوع
+                                <i class="bi bi-plus"></i> إضافة إيراد جديد
                             </a>
                         </div>
                     </div>
                 </nav>
 
-                <!-- Warehouse Content -->
+                <!-- Revenues List -->
                 <div class="container-fluid dashboard-content">
-                    <!-- Warehouse Details -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل المستودع</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="warehouseCode"
-                                                class="form-label"
-                                                >كود المستودع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseCode"
-                                                value="WH-003"
-                                                readonly
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="warehouseName"
-                                                class="form-label"
-                                                >اسم المستودع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseName"
-                                                placeholder="أدخل اسم المستودع"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="location"
-                                                class="form-label"
-                                                >الموقع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="location"
-                                                placeholder="أدخل الموقع"
-                                            />
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل إضافية</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="capacity"
-                                                class="form-label"
-                                                >السعة (م²)</label
-                                            >
-                                            <input
-                                                type="number"
-                                                class="form-control"
-                                                id="capacity"
-                                                placeholder="أدخل السعة"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="contact"
-                                                class="form-label"
-                                                >رقم الاتصال</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="contact"
-                                                placeholder="أدخل رقم الاتصال"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="notes"
-                                                class="form-label"
-                                                >ملاحظات</label
-                                            >
-                                            <textarea
-                                                class="form-control"
-                                                id="notes"
-                                                rows="3"
-                                                placeholder="أدخل ملاحظات"
-                                            ></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">قائمة الإيرادات</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>رقم الإيراد</th>
+                                        <th>المصدر</th>
+                                        <th>المبلغ</th>
+                                        <th>التاريخ</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>REV-001</td>
+                                        <td>
+                                            مدفوعات العملاء (فاتورة INV-001)
+                                        </td>
+                                        <td>20000 جنيه</td>
+                                        <td>2023-10-01</td>
+                                        <td>
+                                            <div class="actions">
+                                                <i
+                                                    class="bi bi-eye icon"
+                                                    title="معاينة"
+                                                ></i>
+                                                <i
+                                                    class="bi bi-pencil icon"
+                                                    title="تعديل"
+                                                ></i>
+                                                <i
+                                                    class="bi bi-trash icon"
+                                                    title="حذف"
+                                                ></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>REV-002</td>
+                                        <td>
+                                            مدفوعات العملاء (فاتورة INV-002)
+                                        </td>
+                                        <td>15000 جنيه</td>
+                                        <td>2023-10-02</td>
+                                        <td>
+                                            <div class="actions">
+                                                <i
+                                                    class="bi bi-eye icon"
+                                                    title="معاينة"
+                                                ></i>
+                                                <i
+                                                    class="bi bi-pencil icon"
+                                                    title="تعديل"
+                                                ></i>
+                                                <i
+                                                    class="bi bi-trash icon"
+                                                    title="حذف"
+                                                ></i>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -441,19 +415,40 @@
         <script src="js/sweetalert.js"></script>
         <script src="js/main.js"></script>
         <script>
-            // JavaScript لتأكيد حفظ المستودع
-            document
-                .getElementById("saveWarehouseButton")
-                .addEventListener("click", function () {
-                    Swal.fire({
-                        title: "حفظ المستودع",
-                        text: "تم حفظ المستودع بنجاح!",
-                        icon: "success",
-                        confirmButtonText: "موافق",
-                    }).then(() => {
-                        window.location.href = "warehouses.html";
-                    });
+            // JavaScript لإدارة الإيرادات
+            document.querySelectorAll(".table .icon").forEach((icon) => {
+                icon.addEventListener("click", function () {
+                    const action = this.getAttribute("title");
+                    const revenueNumber =
+                        this.closest("tr").querySelector(
+                            "td:nth-child(2)"
+                        ).textContent;
+
+                    if (action === "معاينة") {
+                        window.location.href = `view-revenue.html?revenue=${revenueNumber}`;
+                    } else if (action === "تعديل") {
+                        window.location.href = `edit-revenue.html?revenue=${revenueNumber}`;
+                    } else if (action === "حذف") {
+                        Swal.fire({
+                            title: "حذف الإيراد",
+                            text: `هل أنت متأكد من حذف الإيراد ${revenueNumber}؟`,
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonText: "نعم، احذف",
+                            cancelButtonText: "إلغاء",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Swal.fire({
+                                    title: "تم الحذف",
+                                    text: `تم حذف الإيراد ${revenueNumber} بنجاح`,
+                                    icon: "success",
+                                    confirmButtonText: "موافق",
+                                });
+                            }
+                        });
+                    }
                 });
+            });
         </script>
     </body>
 </html>

@@ -1,207 +1,523 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>تعديل الدفعة</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
+        <link href="css/sweetalert.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <!-- إضافة خط Cairo -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: "Cairo", sans-serif;
+            }
+        </style>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تعديل الدفعة</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="css/sweetalert.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <!-- إضافة خط Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <a class="text-align-center" href="#">
-                    <img src="img/logo/logo.png" alt="Logo" height="35">
-                </a>
-            </div>
-
-            <ul class="list-unstyled components">
-                <!-- المبيعات -->
-                <li>
-                    <a href="#salesSubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-cart"></i> المبيعات
-                    </a>
-                    <ul class="collapse list-unstyled" id="salesSubmenu">
-                        <li><a href="create-invoice.html"><i class="bi bi-file-text"></i> فاتورة مبيعات</a></li>
-                        <li><a href="invoices-list.html"><i class="bi bi-gear"></i> إدارة الفواتير</a></li>
-                        <li><a href="customer-payments.html"><i class="bi bi-cash"></i> مدفوعات العملاء</a></li>
-                    </ul>
-                </li>
-
-                <!-- المشتريات -->
-                <li>
-                    <a href="#purchasesSubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-bag"></i> المشتريات
-                    </a>
-                    <ul class="collapse list-unstyled" id="purchasesSubmenu">
-                        <li><a href="#"><i class="bi bi-cart-plus"></i> طلبات الشراء</a></li>
-                        <li><a href="#"><i class="bi bi-receipt"></i> فواتير الشراء</a></li>
-                        <li><a href="#"><i class="bi bi-people"></i> إدارة الموردين</a></li>
-                    </ul>
-                </li>
-
-                <!-- المخازن -->
-                <li>
-                    <a href="#inventorySubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-box-seam"></i> المخازن
-                    </a>
-                    <ul class="collapse list-unstyled" id="inventorySubmenu">
-                        <li><a href="#"><i class="bi bi-box"></i> المنتجات</a></li>
-                        <li><a href="#"><i class="bi bi-list-check"></i> إدارة الجرد</a></li>
-                        <li><a href="#"><i class="bi bi-arrow-left-right"></i> حركة المخزون</a></li>
-                    </ul>
-                </li>
-
-                <!-- الخزينة -->
-                <li>
-                    <a href="#treasurySubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-cash-stack"></i> الخزينة
-                    </a>
-                    <ul class="collapse list-unstyled" id="treasurySubmenu">
-                        <li><a href="#"><i class="bi bi-arrow-down"></i> الإيرادات</a></li>
-                        <li><a href="#"><i class="bi bi-arrow-up"></i> المصروفات</a></li>
-                        <li><a href="#"><i class="bi bi-wallet"></i> الرصيد الحالي</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Page Content -->
-        <div id="content">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <!-- Right Side: Menu Button and Logo -->
-                    <div class="d-flex align-items-center">
-                        <button id="sidebarCollapse" class="btn btn-link text-dark d-lg-none me-2">
-                            <i class="bi bi-list fs-4"></i>
-                        </button>
-                        <button id="sidebarCollapseDesktop" class="btn btn-link text-dark d-none d-lg-block me-2">
-                            <i class="bi bi-list fs-4"></i>
-                        </button>
-                    </div>
-
-                    <!-- Center: Page Title -->
-                    <div class="d-none d-md-block mx-auto">
-                        <h4 class="mb-0">تعديل الدفعة</h4>
-                    </div>
-
-                    <!-- Left Side: Actions -->
-                    <div class="d-flex align-items-center gap-3">
-                        <button class="btn btn-primary" id="savePaymentButton">
-                            <i class="bi bi-save"></i> حفظ التعديلات
-                        </button>
-                        <a href="customer-payments.html" class="btn btn-secondary">
-                            <i class="bi bi-arrow-right"></i> رجوع
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a class="text-align-center" href="#">
+                        <a href="index.html">
+                            <img
+                                src="img/logo/logo.png"
+                                alt="Logo"
+                                height="35"
+                            />
                         </a>
-                    </div>
+                    </a>
                 </div>
+
+                <ul class="list-unstyled components">
+                    <!-- المبيعات -->
+                    <li>
+                        <a href="#salesSubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-cart"></i> المبيعات
+                        </a>
+                        <ul class="collapse list-unstyled" id="salesSubmenu">
+                            <li>
+                                <a href="create-invoice.html"
+                                    ><i class="bi bi-file-text"></i> فاتورة
+                                    مبيعات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="invoices-list.html"
+                                    ><i class="bi bi-gear"></i> إدارة
+                                    الفواتير</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-payments.html"
+                                    ><i class="bi bi-cash"></i> مدفوعات
+                                    العملاء</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- العملاء -->
+                    <li>
+                        <a href="#customersSubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-people"></i> العملاء
+                        </a>
+                        <ul
+                            class="collapse list-unstyled"
+                            id="customersSubmenu"
+                        >
+                            <li>
+                                <a href="customers.html"
+                                    ><i class="bi bi-person-lines-fill"></i>
+                                    إدارة العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="crm.html"
+                                    ><i class="bi bi-chat-dots"></i> إدارة
+                                    علاقات العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-followup.html"
+                                    ><i class="bi bi-calendar-check"></i> متابعة
+                                    العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-reports.html"
+                                    ><i class="bi bi-bar-chart"></i> تقارير
+                                    العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-notifications.html"
+                                    ><i class="bi bi-bell"></i> إشعارات
+                                    العملاء</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- المشتريات -->
+                    <li>
+                        <a href="#purchasesSubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-bag"></i> المشتريات
+                        </a>
+                        <ul
+                            class="collapse list-unstyled"
+                            id="purchasesSubmenu"
+                        >
+                            <li>
+                                <a href="suppliers.html"
+                                    ><i class="bi bi-people"></i> إدارة
+                                    الموردين</a
+                                >
+                            </li>
+                            <li>
+                                <a href="purchase-orders.html"
+                                    ><i class="bi bi-cart-plus"></i> طلبات
+                                    الشراء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="purchase-invoices.html"
+                                    ><i class="bi bi-receipt"></i> فواتير
+                                    الشراء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="supplier-payments.html"
+                                    ><i class="bi bi-cash"></i> مدفوعات
+                                    الموردين</a
+                                >
+                            </li>
+                            <li>
+                                <a href="purchase-reports.html"
+                                    ><i class="bi bi-bar-chart"></i> تقارير
+                                    المشتريات</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- المخازن -->
+                    <li>
+                        <a href="#inventorySubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-box-seam"></i> المخازن
+                        </a>
+                        <ul
+                            class="collapse list-unstyled"
+                            id="inventorySubmenu"
+                        >
+                            <li>
+                                <a href="products.html"
+                                    ><i class="bi bi-box"></i> المنتجات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-check.html"
+                                    ><i class="bi bi-list-check"></i> إدارة
+                                    الجرد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-movement.html"
+                                    ><i class="bi bi-arrow-left-right"></i> حركة
+                                    المخزون</a
+                                >
+                            </li>
+                            <li>
+                                <a href="warehouses.html"
+                                    ><i class="bi bi-house"></i> إدارة
+                                    المستودعات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="track-products.html"
+                                    ><i class="bi bi-search"></i> تتبع
+                                    المنتجات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-settings.html"
+                                    ><i class="bi bi-gear"></i> إعدادات
+                                    المخازن</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-reports.html"
+                                    ><i class="bi bi-bar-chart"></i> تقارير
+                                    المخازن</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-notifications.html"
+                                    ><i class="bi bi-bell"></i> إشعارات
+                                    المخزون</a
+                                >
+                            </li>
+                            <li>
+                                <a href="transfer-products.html"
+                                    ><i class="bi bi-arrow-left-right"></i> نقل
+                                    المنتجات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="shelves-management.html"
+                                    ><i class="bi bi-boxes"></i> إدارة الأرفف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="barcode-management.html"
+                                    ><i class="bi bi-upc-scan"></i> إدارة
+                                    الباركود</a
+                                >
+                            </li>
+                            <li>
+                                <a href="bundled-products.html"
+                                    ><i class="bi bi-boxes"></i> المنتجات
+                                    المجمعة</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- الخزينة -->
+                    <li>
+                        <a href="#treasurySubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-cash-stack"></i> الخزينة
+                        </a>
+                        <ul class="collapse list-unstyled" id="treasurySubmenu">
+                            <li>
+                                <a href="revenues.html"
+                                    ><i class="bi bi-arrow-down"></i>
+                                    الإيرادات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="create-revenue.html"
+                                    ><i class="bi bi-plus"></i> إضافة إيراد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="edit-revenue.html"
+                                    ><i class="bi bi-pencil"></i> تعديل إيراد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="view-revenue.html"
+                                    ><i class="bi bi-eye"></i> معاينة إيراد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="expenses.html"
+                                    ><i class="bi bi-arrow-up"></i> المصروفات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="create-expense.html"
+                                    ><i class="bi bi-plus"></i> إضافة مصروف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="edit-expense.html"
+                                    ><i class="bi bi-pencil"></i> تعديل مصروف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="view-expense.html"
+                                    ><i class="bi bi-eye"></i> معاينة مصروف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="current-balance.html"
+                                    ><i class="bi bi-wallet"></i> الرصيد
+                                    الحالي</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
 
-            <!-- Payment Content -->
-            <div class="container-fluid dashboard-content">
-                <!-- Payment Details -->
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">تفاصيل الدفعة</h5>
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="paymentNumber" class="form-label">رقم الدفعة</label>
-                                        <input type="text" class="form-control" id="paymentNumber" value="PAY-001" readonly>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="paymentDate" class="form-label">تاريخ الدفعة</label>
-                                        <input type="date" class="form-control" id="paymentDate" value="2023-10-01">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="customer" class="form-label">العميل</label>
-                                        <select class="form-select" id="customer">
-                                            <option value="1" selected>أحمد محمد</option>
-                                            <option value="2">شركة السلام</option>
-                                            <option value="3">علي محمود</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="invoice" class="form-label">الفاتورة</label>
-                                        <select class="form-select" id="invoice">
-                                            <option value="INV-001" selected>INV-001</option>
-                                            <option value="INV-002">INV-002</option>
-                                            <option value="INV-003">INV-003</option>
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
+            <!-- Page Content -->
+            <div id="content">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <!-- Right Side: Menu Button and Logo -->
+                        <div class="d-flex align-items-center">
+                            <button
+                                id="sidebarCollapse"
+                                class="btn btn-link text-dark d-lg-none me-2"
+                            >
+                                <i class="bi bi-list fs-4"></i>
+                            </button>
+                            <button
+                                id="sidebarCollapseDesktop"
+                                class="btn btn-link text-dark d-none d-lg-block me-2"
+                            >
+                                <i class="bi bi-list fs-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- Center: Page Title -->
+                        <div class="d-none d-md-block mx-auto">
+                            <h4 class="mb-0">تعديل الدفعة</h4>
+                        </div>
+
+                        <!-- Left Side: Actions -->
+                        <div class="d-flex align-items-center gap-3">
+                            <button
+                                class="btn btn-primary"
+                                id="savePaymentButton"
+                            >
+                                <i class="bi bi-save"></i> حفظ التعديلات
+                            </button>
+                            <a
+                                href="customer-payments.html"
+                                class="btn btn-secondary"
+                            >
+                                <i class="bi bi-arrow-right"></i> رجوع
+                            </a>
                         </div>
                     </div>
+                </nav>
 
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">تفاصيل إضافية</h5>
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="amount" class="form-label">المبلغ</label>
-                                        <input type="number" class="form-control" id="amount" value="5000">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="paymentMethod" class="form-label">طريقة الدفع</label>
-                                        <select class="form-select" id="paymentMethod">
-                                            <option value="cash">نقدي</option>
-                                            <option value="bank_transfer" selected>تحويل بنكي</option>
-                                            <option value="credit_card">بطاقة ائتمان</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="status" class="form-label">الحالة</label>
-                                        <select class="form-select" id="status">
-                                            <option value="paid" selected>مدفوعة</option>
-                                            <option value="pending">معلقة</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="notes" class="form-label">ملاحظات</label>
-                                        <textarea class="form-control" id="notes" rows="3">دفعة مقابل فاتورة INV-001</textarea>
-                                    </div>
-                                </form>
+                <!-- Payment Content -->
+                <div class="container-fluid dashboard-content">
+                    <!-- Payment Details -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">تفاصيل الدفعة</h5>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label
+                                                for="paymentNumber"
+                                                class="form-label"
+                                                >رقم الدفعة</label
+                                            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="paymentNumber"
+                                                value="PAY-001"
+                                                readonly
+                                            />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="paymentDate"
+                                                class="form-label"
+                                                >تاريخ الدفعة</label
+                                            >
+                                            <input
+                                                type="date"
+                                                class="form-control"
+                                                id="paymentDate"
+                                                value="2023-10-01"
+                                            />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="customer"
+                                                class="form-label"
+                                                >العميل</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="customer"
+                                            >
+                                                <option value="1" selected>
+                                                    أحمد محمد
+                                                </option>
+                                                <option value="2">
+                                                    شركة السلام
+                                                </option>
+                                                <option value="3">
+                                                    علي محمود
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="invoice"
+                                                class="form-label"
+                                                >الفاتورة</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="invoice"
+                                            >
+                                                <option
+                                                    value="INV-001"
+                                                    selected
+                                                >
+                                                    INV-001
+                                                </option>
+                                                <option value="INV-002">
+                                                    INV-002
+                                                </option>
+                                                <option value="INV-003">
+                                                    INV-003
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">تفاصيل إضافية</h5>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label
+                                                for="amount"
+                                                class="form-label"
+                                                >المبلغ</label
+                                            >
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                id="amount"
+                                                value="5000"
+                                            />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="paymentMethod"
+                                                class="form-label"
+                                                >طريقة الدفع</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="paymentMethod"
+                                            >
+                                                <option value="cash">
+                                                    نقدي
+                                                </option>
+                                                <option
+                                                    value="bank_transfer"
+                                                    selected
+                                                >
+                                                    تحويل بنكي
+                                                </option>
+                                                <option value="credit_card">
+                                                    بطاقة ائتمان
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="status"
+                                                class="form-label"
+                                                >الحالة</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="status"
+                                            >
+                                                <option value="paid" selected>
+                                                    مدفوعة
+                                                </option>
+                                                <option value="pending">
+                                                    معلقة
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="notes"
+                                                class="form-label"
+                                                >ملاحظات</label
+                                            >
+                                            <textarea
+                                                class="form-control"
+                                                id="notes"
+                                                rows="3"
+                                            >
+دفعة مقابل فاتورة INV-001</textarea
+                                            >
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sweetalert.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // JavaScript لتأكيد حفظ التعديلات باستخدام SweetAlert2
-        document.getElementById('savePaymentButton').addEventListener('click', function () {
-            Swal.fire({
-                title: 'حفظ التعديلات',
-                text: 'تم حفظ تعديلات الدفعة بنجاح!',
-                icon: 'success',
-                confirmButtonText: 'موافق'
-            }).then(() => {
-                window.location.href = 'customer-payments.html'; // الرجوع لصفحة مدفوعات العملاء بعد الحفظ
-            });
-        });
-    </script>
-</body>
-
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/sweetalert.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            // JavaScript لتأكيد حفظ التعديلات باستخدام SweetAlert2
+            document
+                .getElementById("savePaymentButton")
+                .addEventListener("click", function () {
+                    Swal.fire({
+                        title: "حفظ التعديلات",
+                        text: "تم حفظ تعديلات الدفعة بنجاح!",
+                        icon: "success",
+                        confirmButtonText: "موافق",
+                    }).then(() => {
+                        window.location.href = "customer-payments.html"; // الرجوع لصفحة مدفوعات العملاء بعد الحفظ
+                    });
+                });
+        </script>
+    </body>
 </html>

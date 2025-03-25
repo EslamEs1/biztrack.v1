@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>إضافة مستودع جديد</title>
+        <title>معاينة طلب الشراء</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
         <link href="css/sweetalert.css" rel="stylesheet" />
@@ -22,7 +22,6 @@
 
     <body>
         <div class="wrapper">
-            <!-- Sidebar -->
             <!-- Sidebar -->
             <nav id="sidebar">
                 <div class="sidebar-header">
@@ -302,135 +301,82 @@
                             >
                                 <i class="bi bi-list fs-4"></i>
                             </button>
-                            <button
-                                id="sidebarCollapseDesktop"
-                                class="btn btn-link text-dark d-none d-lg-block me-2"
-                            >
-                                <i class="bi bi-list fs-4"></i>
-                            </button>
                         </div>
 
                         <!-- Center: Page Title -->
                         <div class="d-none d-md-block mx-auto">
-                            <h4 class="mb-0">إضافة مستودع جديد</h4>
+                            <h4 class="mb-0">معاينة طلب الشراء</h4>
                         </div>
 
                         <!-- Left Side: Actions -->
                         <div class="d-flex align-items-center gap-3">
-                            <button
+                            <a
+                                href="edit-purchase-order.html"
                                 class="btn btn-primary"
-                                id="saveWarehouseButton"
                             >
-                                <i class="bi bi-save"></i> حفظ المستودع
-                            </button>
-                            <a href="warehouses.html" class="btn btn-secondary">
+                                <i class="bi bi-pencil"></i> تعديل الطلب
+                            </a>
+                            <a
+                                href="purchase-orders.html"
+                                class="btn btn-secondary"
+                            >
                                 <i class="bi bi-arrow-right"></i> رجوع
                             </a>
                         </div>
                     </div>
                 </nav>
 
-                <!-- Warehouse Content -->
+                <!-- View Purchase Order Details -->
                 <div class="container-fluid dashboard-content">
-                    <!-- Warehouse Details -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل المستودع</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="warehouseCode"
-                                                class="form-label"
-                                                >كود المستودع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseCode"
-                                                value="WH-003"
-                                                readonly
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="warehouseName"
-                                                class="form-label"
-                                                >اسم المستودع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseName"
-                                                placeholder="أدخل اسم المستودع"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="location"
-                                                class="form-label"
-                                                >الموقع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="location"
-                                                placeholder="أدخل الموقع"
-                                            />
-                                        </div>
-                                    </form>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">تفاصيل طلب الشراء</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>رقم الطلب:</strong> PO-001</p>
+                                    <p>
+                                        <strong>اسم المورد:</strong> شركة
+                                        المصرية للتجارة
+                                    </p>
+                                    <p>
+                                        <strong>تاريخ الطلب:</strong> 2023-10-01
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>الحالة:</strong> قيد الانتظار</p>
+                                    <p><strong>ملاحظات:</strong> طلب عاجل</p>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل إضافية</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="capacity"
-                                                class="form-label"
-                                                >السعة (م²)</label
-                                            >
-                                            <input
-                                                type="number"
-                                                class="form-control"
-                                                id="capacity"
-                                                placeholder="أدخل السعة"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="contact"
-                                                class="form-label"
-                                                >رقم الاتصال</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="contact"
-                                                placeholder="أدخل رقم الاتصال"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="notes"
-                                                class="form-label"
-                                                >ملاحظات</label
-                                            >
-                                            <textarea
-                                                class="form-control"
-                                                id="notes"
-                                                rows="3"
-                                                placeholder="أدخل ملاحظات"
-                                            ></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                            <h5 class="mt-4">المنتجات</h5>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>المنتج</th>
+                                        <th>الكمية</th>
+                                        <th>سعر الوحدة</th>
+                                        <th>الإجمالي</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>منتج 1</td>
+                                        <td>10</td>
+                                        <td>1000 جنيه</td>
+                                        <td>10000 جنيه</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>منتج 2</td>
+                                        <td>5</td>
+                                        <td>1000 جنيه</td>
+                                        <td>5000 جنيه</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><strong>الإجمالي الكلي:</strong> 15000 جنيه</p>
                         </div>
                     </div>
                 </div>
@@ -440,20 +386,5 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/sweetalert.js"></script>
         <script src="js/main.js"></script>
-        <script>
-            // JavaScript لتأكيد حفظ المستودع
-            document
-                .getElementById("saveWarehouseButton")
-                .addEventListener("click", function () {
-                    Swal.fire({
-                        title: "حفظ المستودع",
-                        text: "تم حفظ المستودع بنجاح!",
-                        icon: "success",
-                        confirmButtonText: "موافق",
-                    }).then(() => {
-                        window.location.href = "warehouses.html";
-                    });
-                });
-        </script>
     </body>
 </html>

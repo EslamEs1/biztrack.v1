@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>إضافة مستودع جديد</title>
+        <title>تعديل فاتورة الشراء</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
         <link href="css/sweetalert.css" rel="stylesheet" />
@@ -22,7 +22,6 @@
 
     <body>
         <div class="wrapper">
-            <!-- Sidebar -->
             <!-- Sidebar -->
             <nav id="sidebar">
                 <div class="sidebar-header">
@@ -312,125 +311,273 @@
 
                         <!-- Center: Page Title -->
                         <div class="d-none d-md-block mx-auto">
-                            <h4 class="mb-0">إضافة مستودع جديد</h4>
+                            <h4 class="mb-0">تعديل فاتورة الشراء</h4>
                         </div>
 
                         <!-- Left Side: Actions -->
                         <div class="d-flex align-items-center gap-3">
                             <button
                                 class="btn btn-primary"
-                                id="saveWarehouseButton"
+                                id="updatePurchaseInvoiceButton"
                             >
-                                <i class="bi bi-save"></i> حفظ المستودع
+                                <i class="bi bi-save"></i> تحديث الفاتورة
                             </button>
-                            <a href="warehouses.html" class="btn btn-secondary">
+                            <a
+                                href="purchase-invoices.html"
+                                class="btn btn-secondary"
+                            >
                                 <i class="bi bi-arrow-right"></i> رجوع
                             </a>
                         </div>
                     </div>
                 </nav>
 
-                <!-- Warehouse Content -->
+                <!-- Edit Purchase Invoice Form -->
                 <div class="container-fluid dashboard-content">
-                    <!-- Warehouse Details -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل المستودع</h5>
-                                    <form>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">بيانات فاتورة الشراء</h5>
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label
-                                                for="warehouseCode"
+                                                for="invoiceNumber"
                                                 class="form-label"
-                                                >كود المستودع</label
+                                                >رقم الفاتورة</label
                                             >
                                             <input
                                                 type="text"
                                                 class="form-control"
-                                                id="warehouseCode"
-                                                value="WH-003"
+                                                id="invoiceNumber"
+                                                value="PI-001"
                                                 readonly
                                             />
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label
-                                                for="warehouseName"
+                                                for="supplier"
                                                 class="form-label"
-                                                >اسم المستودع</label
+                                                >المورد</label
                                             >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseName"
-                                                placeholder="أدخل اسم المستودع"
-                                            />
+                                            <select
+                                                class="form-select"
+                                                id="supplier"
+                                            >
+                                                <option
+                                                    value="SUPP-001"
+                                                    selected
+                                                >
+                                                    شركة المصرية للتجارة
+                                                </option>
+                                                <option value="SUPP-002">
+                                                    شركة التقدم للتوريدات
+                                                </option>
+                                                <option value="SUPP-003">
+                                                    شركة النور للاستيراد
+                                                </option>
+                                            </select>
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label
-                                                for="location"
+                                                for="invoiceDate"
                                                 class="form-label"
-                                                >الموقع</label
+                                                >تاريخ الفاتورة</label
                                             >
                                             <input
-                                                type="text"
+                                                type="date"
                                                 class="form-control"
-                                                id="location"
-                                                placeholder="أدخل الموقع"
+                                                id="invoiceDate"
+                                                value="2023-10-01"
                                             />
                                         </div>
-                                    </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label
+                                                for="purchaseOrder"
+                                                class="form-label"
+                                                >طلب الشراء (اختياري)</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="purchaseOrder"
+                                            >
+                                                <option value="">
+                                                    اختر طلب شراء
+                                                </option>
+                                                <option value="PO-001" selected>
+                                                    PO-001
+                                                </option>
+                                                <option value="PO-002">
+                                                    PO-002
+                                                </option>
+                                                <option value="PO-003">
+                                                    PO-003
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label
+                                                for="paymentStatus"
+                                                class="form-label"
+                                                >حالة الدفع</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="paymentStatus"
+                                            >
+                                                <option value="غير مدفوعة">
+                                                    غير مدفوعة
+                                                </option>
+                                                <option value="مدفوعة" selected>
+                                                    مدفوعة
+                                                </option>
+                                                <option value="مدفوعة جزئيًا">
+                                                    مدفوعة جزئيًا
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل إضافية</h5>
-                                    <form>
+                                <h5 class="mt-4">المنتجات</h5>
+                                <table class="table" id="productsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>المنتج</th>
+                                            <th>الكمية</th>
+                                            <th>سعر الوحدة</th>
+                                            <th>الإجمالي</th>
+                                            <th>الإجراءات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option
+                                                        value="PROD-001"
+                                                        selected
+                                                    >
+                                                        منتج 1
+                                                    </option>
+                                                    <option value="PROD-002">
+                                                        منتج 2
+                                                    </option>
+                                                    <option value="PROD-003">
+                                                        منتج 3
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="number"
+                                                    class="form-control quantity"
+                                                    value="10"
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="number"
+                                                    class="form-control unitPrice"
+                                                    value="1000"
+                                                />
+                                            </td>
+                                            <td class="total">10000 جنيه</td>
+                                            <td>
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-danger btn-sm remove-row"
+                                                >
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <select class="form-select">
+                                                    <option value="PROD-001">
+                                                        منتج 1
+                                                    </option>
+                                                    <option
+                                                        value="PROD-002"
+                                                        selected
+                                                    >
+                                                        منتج 2
+                                                    </option>
+                                                    <option value="PROD-003">
+                                                        منتج 3
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="number"
+                                                    class="form-control quantity"
+                                                    value="5"
+                                                />
+                                            </td>
+                                            <td>
+                                                <input
+                                                    type="number"
+                                                    class="form-control unitPrice"
+                                                    value="1000"
+                                                />
+                                            </td>
+                                            <td class="total">5000 جنيه</td>
+                                            <td>
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-danger btn-sm remove-row"
+                                                >
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    id="addProductRow"
+                                >
+                                    <i class="bi bi-plus"></i> إضافة منتج
+                                </button>
+
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
                                             <label
-                                                for="capacity"
-                                                class="form-label"
-                                                >السعة (م²)</label
-                                            >
-                                            <input
-                                                type="number"
-                                                class="form-control"
-                                                id="capacity"
-                                                placeholder="أدخل السعة"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="contact"
-                                                class="form-label"
-                                                >رقم الاتصال</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="contact"
-                                                placeholder="أدخل رقم الاتصال"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="notes"
+                                                for="invoiceNotes"
                                                 class="form-label"
                                                 >ملاحظات</label
                                             >
                                             <textarea
                                                 class="form-control"
-                                                id="notes"
+                                                id="invoiceNotes"
                                                 rows="3"
-                                                placeholder="أدخل ملاحظات"
-                                            ></textarea>
+                                            >
+فاتورة شراء عاجلة</textarea
+                                            >
                                         </div>
-                                    </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>
+                                            <strong>الإجمالي الكلي:</strong>
+                                            <span id="grandTotal"
+                                                >15000 جنيه</span
+                                            >
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -441,17 +588,84 @@
         <script src="js/sweetalert.js"></script>
         <script src="js/main.js"></script>
         <script>
-            // JavaScript لتأكيد حفظ المستودع
+            // JavaScript لتعديل فاتورة الشراء
             document
-                .getElementById("saveWarehouseButton")
+                .getElementById("addProductRow")
                 .addEventListener("click", function () {
+                    const tableBody = document.querySelector(
+                        "#productsTable tbody"
+                    );
+                    const newRow = `
+                <tr>
+                    <td>
+                        <select class="form-select">
+                            <option value="PROD-001">منتج 1</option>
+                            <option value="PROD-002">منتج 2</option>
+                            <option value="PROD-003">منتج 3</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="form-control quantity" value="1"></td>
+                    <td><input type="number" class="form-control unitPrice" value="1000"></td>
+                    <td class="total">1000 جنيه</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm remove-row">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+                    tableBody.insertAdjacentHTML("beforeend", newRow);
+                    updateGrandTotal();
+                });
+
+            document.addEventListener("click", function (e) {
+                if (e.target.closest(".remove-row")) {
+                    e.target.closest("tr").remove();
+                    updateGrandTotal();
+                }
+            });
+
+            document.addEventListener("input", function (e) {
+                if (
+                    e.target.classList.contains("quantity") ||
+                    e.target.classList.contains("unitPrice")
+                ) {
+                    const row = e.target.closest("tr");
+                    const quantity = row.querySelector(".quantity").value;
+                    const unitPrice = row.querySelector(".unitPrice").value;
+                    const total = quantity * unitPrice;
+                    row.querySelector(".total").textContent = `${total} جنيه`;
+                    updateGrandTotal();
+                }
+            });
+
+            function updateGrandTotal() {
+                let grandTotal = 0;
+                document
+                    .querySelectorAll("#productsTable tbody tr")
+                    .forEach((row) => {
+                        const total =
+                            parseFloat(
+                                row.querySelector(".total").textContent
+                            ) || 0;
+                        grandTotal += total;
+                    });
+                document.getElementById(
+                    "grandTotal"
+                ).textContent = `${grandTotal} جنيه`;
+            }
+
+            document
+                .getElementById("updatePurchaseInvoiceButton")
+                .addEventListener("click", function () {
+                    const invoiceNumber =
+                        document.getElementById("invoiceNumber").value;
                     Swal.fire({
-                        title: "حفظ المستودع",
-                        text: "تم حفظ المستودع بنجاح!",
+                        title: "تعديل فاتورة الشراء",
+                        text: `تم تحديث فاتورة الشراء ${invoiceNumber} بنجاح!`,
                         icon: "success",
                         confirmButtonText: "موافق",
                     }).then(() => {
-                        window.location.href = "warehouses.html";
+                        window.location.href = "purchase-invoices.html";
                     });
                 });
         </script>

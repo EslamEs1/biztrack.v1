@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>حركة المخزون</title>
+        <title>تقارير المشتريات</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
         <link href="css/sweetalert.css" rel="stylesheet" />
@@ -303,25 +303,9 @@
                             </button>
                         </div>
 
-                        <!-- Center: Search Bar -->
-                        <div
-                            class="d-none d-md-block mx-auto"
-                            style="width: 40%"
-                        >
-                            <div class="input-group">
-                                <input
-                                    type="text"
-                                    class="form-control search-input"
-                                    placeholder="البحث..."
-                                    aria-label="Search"
-                                />
-                                <button
-                                    class="btn btn-outline-secondary"
-                                    type="button"
-                                >
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
+                        <!-- Center: Page Title -->
+                        <div class="d-none d-md-block mx-auto">
+                            <h4 class="mb-0">تقارير المشتريات</h4>
                         </div>
 
                         <!-- Left Side: Notifications and Profile -->
@@ -361,7 +345,7 @@
                                             ></i>
                                             <div class="ms-2">
                                                 <p class="mb-0">
-                                                    تم تحديث المخزون
+                                                    تم إنشاء تقرير جديد
                                                 </p>
                                                 <small class="text-muted"
                                                     >منذ 5 دقائق</small
@@ -438,53 +422,146 @@
                     </div>
                 </nav>
 
-                <!-- Inventory Movement Table -->
+                <!-- Purchase Reports -->
                 <div class="container-fluid dashboard-content">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">حركة المخزون</h5>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>التاريخ</th>
-                                        <th>كود المنتج</th>
-                                        <th>اسم المنتج</th>
-                                        <th>النوع</th>
-                                        <th>الكمية</th>
-                                        <th>السبب</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2023-10-01</td>
-                                        <td>PRD-001</td>
-                                        <td>لاب توب ديل</td>
-                                        <td>دخول</td>
-                                        <td>30</td>
-                                        <td>شراء جديد</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>2023-10-02</td>
-                                        <td>PRD-001</td>
-                                        <td>لاب توب ديل</td>
-                                        <td>خروج</td>
-                                        <td>5</td>
-                                        <td>بيع (فاتورة INV-001)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>2023-10-03</td>
-                                        <td>PRD-002</td>
-                                        <td>طابعة HP</td>
-                                        <td>دخول</td>
-                                        <td>10</td>
-                                        <td>شراء جديد</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <h5 class="card-title">تقارير المشتريات</h5>
+
+                            <!-- Filters -->
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <label for="reportType" class="form-label"
+                                        >نوع التقرير</label
+                                    >
+                                    <select class="form-select" id="reportType">
+                                        <option value="totalPurchases">
+                                            إجمالي المشتريات
+                                        </option>
+                                        <option value="topSuppliers">
+                                            أكثر الموردين تعاملًا
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="startDate" class="form-label"
+                                        >من تاريخ</label
+                                    >
+                                    <input
+                                        type="date"
+                                        class="form-control"
+                                        id="startDate"
+                                    />
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="endDate" class="form-label"
+                                        >إلى تاريخ</label
+                                    >
+                                    <input
+                                        type="date"
+                                        class="form-control"
+                                        id="endDate"
+                                    />
+                                </div>
+                                <div class="col-md-3 d-flex align-items-end">
+                                    <button
+                                        class="btn btn-primary w-100"
+                                        id="generateReportButton"
+                                    >
+                                        <i class="bi bi-bar-chart"></i> إنشاء
+                                        التقرير
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Report Results -->
+                            <div id="reportResults">
+                                <!-- Total Purchases Report -->
+                                <div
+                                    id="totalPurchasesReport"
+                                    class="report-section"
+                                    style="display: none"
+                                >
+                                    <h5>إجمالي المشتريات</h5>
+                                    <p>
+                                        <strong>الإجمالي الكلي:</strong> 25000
+                                        جنيه
+                                    </p>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>رقم الفاتورة</th>
+                                                <th>اسم المورد</th>
+                                                <th>التاريخ</th>
+                                                <th>الإجمالي</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>PI-001</td>
+                                                <td>شركة المصرية للتجارة</td>
+                                                <td>2023-10-01</td>
+                                                <td>15000 جنيه</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>PI-002</td>
+                                                <td>شركة التقدم للتوريدات</td>
+                                                <td>2023-10-02</td>
+                                                <td>8000 جنيه</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>PI-003</td>
+                                                <td>شركة النور للاستيراد</td>
+                                                <td>2023-10-03</td>
+                                                <td>2000 جنيه</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Top Suppliers Report -->
+                                <div
+                                    id="topSuppliersReport"
+                                    class="report-section"
+                                    style="display: none"
+                                >
+                                    <h5>أكثر الموردين تعاملًا</h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>اسم المورد</th>
+                                                <th>عدد الفواتير</th>
+                                                <th>إجمالي المشتريات</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>شركة المصرية للتجارة</td>
+                                                <td>5</td>
+                                                <td>50000 جنيه</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>شركة التقدم للتوريدات</td>
+                                                <td>3</td>
+                                                <td>20000 جنيه</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>شركة النور للاستيراد</td>
+                                                <td>2</td>
+                                                <td>8000 جنيه</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -494,5 +571,43 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/sweetalert.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            // JavaScript لإنشاء التقارير
+            document
+                .getElementById("generateReportButton")
+                .addEventListener("click", function () {
+                    const reportType =
+                        document.getElementById("reportType").value;
+                    const startDate =
+                        document.getElementById("startDate").value;
+                    const endDate = document.getElementById("endDate").value;
+
+                    // إخفاء كل التقارير أولاً
+                    document
+                        .querySelectorAll(".report-section")
+                        .forEach((section) => {
+                            section.style.display = "none";
+                        });
+
+                    // عرض التقرير بناءً على النوع المختار
+                    if (reportType === "totalPurchases") {
+                        document.getElementById(
+                            "totalPurchasesReport"
+                        ).style.display = "block";
+                    } else if (reportType === "topSuppliers") {
+                        document.getElementById(
+                            "topSuppliersReport"
+                        ).style.display = "block";
+                    }
+
+                    // تنبيه بنجاح إنشاء التقرير
+                    Swal.fire({
+                        title: "إنشاء التقرير",
+                        text: "تم إنشاء التقرير بنجاح!",
+                        icon: "success",
+                        confirmButtonText: "موافق",
+                    });
+                });
+        </script>
     </body>
 </html>

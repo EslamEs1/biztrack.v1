@@ -1,252 +1,523 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>نقل المنتجات</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
+        <link href="css/sweetalert.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <!-- إضافة خط Cairo -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                font-family: "Cairo", sans-serif;
+            }
+        </style>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نقل المنتجات</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="css/sweetalert.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <!-- إضافة خط Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <a class="text-align-center" href="#">
-                    <img src="img/logo/logo.png" alt="Logo" height="35">
-                </a>
-            </div>
-
-            <ul class="list-unstyled components">
-                <!-- المبيعات -->
-                <li>
-                    <a href="#salesSubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-cart"></i> المبيعات
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a class="text-align-center" href="#">
+                        <a href="index.html">
+                            <img
+                                src="img/logo/logo.png"
+                                alt="Logo"
+                                height="35"
+                            />
+                        </a>
                     </a>
-                    <ul class="collapse list-unstyled" id="salesSubmenu">
-                        <li><a href="create-invoice.html"><i class="bi bi-file-text"></i> فاتورة مبيعات</a></li>
-                        <li><a href="invoices-list.html"><i class="bi bi-gear"></i> إدارة الفواتير</a></li>
-                        <li><a href="customer-payments.html"><i class="bi bi-cash"></i> مدفوعات العملاء</a></li>
-                    </ul>
-                </li>
-
-                <!-- المشتريات -->
-                <li>
-                    <a href="#purchasesSubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-bag"></i> المشتريات
-                    </a>
-                    <ul class="collapse list-unstyled" id="purchasesSubmenu">
-                        <li><a href="#"><i class="bi bi-cart-plus"></i> طلبات الشراء</a></li>
-                        <li><a href="#"><i class="bi bi-receipt"></i> فواتير الشراء</a></li>
-                        <li><a href="#"><i class="bi bi-people"></i> إدارة الموردين</a></li>
-                    </ul>
-                </li>
-
-                <!-- المخازن -->
-                <li>
-                    <a href="#inventorySubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-box-seam"></i> المخازن
-                    </a>
-                    <ul class="collapse list-unstyled" id="inventorySubmenu">
-                        <li><a href="products.html"><i class="bi bi-box"></i> المنتجات</a></li>
-                        <li><a href="inventory-check.html"><i class="bi bi-list-check"></i> إدارة الجرد</a></li>
-                        <li><a href="inventory-movement.html"><i class="bi bi-arrow-left-right"></i> حركة المخزون</a></li>
-                        <li><a href="warehouses.html"><i class="bi bi-house"></i> إدارة المستودعات</a></li>
-                        <li><a href="track-products.html"><i class="bi bi-search"></i> تتبع المنتجات</a></li>
-                        <li><a href="inventory-settings.html"><i class="bi bi-gear"></i> إعدادات المخازن</a></li>
-                        <li><a href="inventory-reports.html"><i class="bi bi-bar-chart"></i> تقارير المخازن</a></li>
-                        <li><a href="inventory-notifications.html"><i class="bi bi-bell"></i> إشعارات المخزون</a></li>
-                        <li><a href="transfer-products.html"><i class="bi bi-arrow-left-right"></i> نقل المنتجات</a></li>
-                        <li><a href="shelves-management.html"><i class="bi bi-boxes"></i> إدارة الأرفف</a></li>
-                    </ul>
-                </li>
-
-                <!-- الخزينة -->
-                <li>
-                    <a href="#treasurySubmenu" data-bs-toggle="collapse">
-                        <i class="bi bi-cash-stack"></i> الخزينة
-                    </a>
-                    <ul class="collapse list-unstyled" id="treasurySubmenu">
-                        <li><a href="#"><i class="bi bi-arrow-down"></i> الإيرادات</a></li>
-                        <li><a href="#"><i class="bi bi-arrow-up"></i> المصروفات</a></li>
-                        <li><a href="#"><i class="bi bi-wallet"></i> الرصيد الحالي</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Page Content -->
-        <div id="content">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <!-- Right Side: Menu Button -->
-                    <div class="d-flex align-items-center">
-                        <button id="sidebarCollapse" class="btn btn-link text-dark d-lg-none me-2">
-                            <i class="bi bi-list fs-4"></i>
-                        </button>
-                        <button id="sidebarCollapseDesktop" class="btn btn-link text-dark d-none d-lg-block me-2">
-                            <i class="bi bi-list fs-4"></i>
-                        </button>
-                    </div>
-
-                    <!-- Center: Page Title -->
-                    <div class="d-none d-md-block mx-auto">
-                        <h4 class="mb-0">نقل المنتجات</h4>
-                    </div>
-
-                    <!-- Left Side: Actions -->
-                    <div class="d-flex align-items-center gap-3">
-                        <button class="btn btn-primary" id="transferProductsButton">
-                            <i class="bi bi-arrow-left-right"></i> نقل المنتجات
-                        </button>
-                    </div>
                 </div>
+
+                <ul class="list-unstyled components">
+                    <!-- المبيعات -->
+                    <li>
+                        <a href="#salesSubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-cart"></i> المبيعات
+                        </a>
+                        <ul class="collapse list-unstyled" id="salesSubmenu">
+                            <li>
+                                <a href="create-invoice.html"
+                                    ><i class="bi bi-file-text"></i> فاتورة
+                                    مبيعات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="invoices-list.html"
+                                    ><i class="bi bi-gear"></i> إدارة
+                                    الفواتير</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-payments.html"
+                                    ><i class="bi bi-cash"></i> مدفوعات
+                                    العملاء</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- العملاء -->
+                    <li>
+                        <a href="#customersSubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-people"></i> العملاء
+                        </a>
+                        <ul
+                            class="collapse list-unstyled"
+                            id="customersSubmenu"
+                        >
+                            <li>
+                                <a href="customers.html"
+                                    ><i class="bi bi-person-lines-fill"></i>
+                                    إدارة العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="crm.html"
+                                    ><i class="bi bi-chat-dots"></i> إدارة
+                                    علاقات العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-followup.html"
+                                    ><i class="bi bi-calendar-check"></i> متابعة
+                                    العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-reports.html"
+                                    ><i class="bi bi-bar-chart"></i> تقارير
+                                    العملاء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="customer-notifications.html"
+                                    ><i class="bi bi-bell"></i> إشعارات
+                                    العملاء</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- المشتريات -->
+                    <li>
+                        <a href="#purchasesSubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-bag"></i> المشتريات
+                        </a>
+                        <ul
+                            class="collapse list-unstyled"
+                            id="purchasesSubmenu"
+                        >
+                            <li>
+                                <a href="suppliers.html"
+                                    ><i class="bi bi-people"></i> إدارة
+                                    الموردين</a
+                                >
+                            </li>
+                            <li>
+                                <a href="purchase-orders.html"
+                                    ><i class="bi bi-cart-plus"></i> طلبات
+                                    الشراء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="purchase-invoices.html"
+                                    ><i class="bi bi-receipt"></i> فواتير
+                                    الشراء</a
+                                >
+                            </li>
+                            <li>
+                                <a href="supplier-payments.html"
+                                    ><i class="bi bi-cash"></i> مدفوعات
+                                    الموردين</a
+                                >
+                            </li>
+                            <li>
+                                <a href="purchase-reports.html"
+                                    ><i class="bi bi-bar-chart"></i> تقارير
+                                    المشتريات</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- المخازن -->
+                    <li>
+                        <a href="#inventorySubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-box-seam"></i> المخازن
+                        </a>
+                        <ul
+                            class="collapse list-unstyled"
+                            id="inventorySubmenu"
+                        >
+                            <li>
+                                <a href="products.html"
+                                    ><i class="bi bi-box"></i> المنتجات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-check.html"
+                                    ><i class="bi bi-list-check"></i> إدارة
+                                    الجرد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-movement.html"
+                                    ><i class="bi bi-arrow-left-right"></i> حركة
+                                    المخزون</a
+                                >
+                            </li>
+                            <li>
+                                <a href="warehouses.html"
+                                    ><i class="bi bi-house"></i> إدارة
+                                    المستودعات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="track-products.html"
+                                    ><i class="bi bi-search"></i> تتبع
+                                    المنتجات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-settings.html"
+                                    ><i class="bi bi-gear"></i> إعدادات
+                                    المخازن</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-reports.html"
+                                    ><i class="bi bi-bar-chart"></i> تقارير
+                                    المخازن</a
+                                >
+                            </li>
+                            <li>
+                                <a href="inventory-notifications.html"
+                                    ><i class="bi bi-bell"></i> إشعارات
+                                    المخزون</a
+                                >
+                            </li>
+                            <li>
+                                <a href="transfer-products.html"
+                                    ><i class="bi bi-arrow-left-right"></i> نقل
+                                    المنتجات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="shelves-management.html"
+                                    ><i class="bi bi-boxes"></i> إدارة الأرفف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="barcode-management.html"
+                                    ><i class="bi bi-upc-scan"></i> إدارة
+                                    الباركود</a
+                                >
+                            </li>
+                            <li>
+                                <a href="bundled-products.html"
+                                    ><i class="bi bi-boxes"></i> المنتجات
+                                    المجمعة</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- الخزينة -->
+                    <li>
+                        <a href="#treasurySubmenu" data-bs-toggle="collapse">
+                            <i class="bi bi-cash-stack"></i> الخزينة
+                        </a>
+                        <ul class="collapse list-unstyled" id="treasurySubmenu">
+                            <li>
+                                <a href="revenues.html"
+                                    ><i class="bi bi-arrow-down"></i>
+                                    الإيرادات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="create-revenue.html"
+                                    ><i class="bi bi-plus"></i> إضافة إيراد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="edit-revenue.html"
+                                    ><i class="bi bi-pencil"></i> تعديل إيراد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="view-revenue.html"
+                                    ><i class="bi bi-eye"></i> معاينة إيراد</a
+                                >
+                            </li>
+                            <li>
+                                <a href="expenses.html"
+                                    ><i class="bi bi-arrow-up"></i> المصروفات</a
+                                >
+                            </li>
+                            <li>
+                                <a href="create-expense.html"
+                                    ><i class="bi bi-plus"></i> إضافة مصروف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="edit-expense.html"
+                                    ><i class="bi bi-pencil"></i> تعديل مصروف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="view-expense.html"
+                                    ><i class="bi bi-eye"></i> معاينة مصروف</a
+                                >
+                            </li>
+                            <li>
+                                <a href="current-balance.html"
+                                    ><i class="bi bi-wallet"></i> الرصيد
+                                    الحالي</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
 
-            <!-- Transfer Content -->
-            <div class="container-fluid dashboard-content">
-                <!-- Transfer Details -->
-                <div class="row mb-4">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">تفاصيل النقل</h5>
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="fromWarehouse" class="form-label">من المستودع</label>
-                                        <select class="form-select" id="fromWarehouse">
-                                            <option value="WH-001">WH-001</option>
-                                            <option value="WH-002">WH-002</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="toWarehouse" class="form-label">إلى المستودع</label>
-                                        <select class="form-select" id="toWarehouse">
-                                            <option value="WH-002">WH-002</option>
-                                            <option value="WH-001">WH-001</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="transferDate" class="form-label">تاريخ النقل</label>
-                                        <input type="date" class="form-control" id="transferDate">
-                                    </div>
-                                </form>
-                            </div>
+            <!-- Page Content -->
+            <div id="content">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <!-- Right Side: Menu Button -->
+                        <div class="d-flex align-items-center">
+                            <button
+                                id="sidebarCollapse"
+                                class="btn btn-link text-dark d-lg-none me-2"
+                            >
+                                <i class="bi bi-list fs-4"></i>
+                            </button>
+                            <button
+                                id="sidebarCollapseDesktop"
+                                class="btn btn-link text-dark d-none d-lg-block me-2"
+                            >
+                                <i class="bi bi-list fs-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- Center: Page Title -->
+                        <div class="d-none d-md-block mx-auto">
+                            <h4 class="mb-0">نقل المنتجات</h4>
+                        </div>
+
+                        <!-- Left Side: Actions -->
+                        <div class="d-flex align-items-center gap-3">
+                            <button
+                                class="btn btn-primary"
+                                id="transferProductsButton"
+                            >
+                                <i class="bi bi-arrow-left-right"></i> نقل
+                                المنتجات
+                            </button>
                         </div>
                     </div>
+                </nav>
 
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">المنتجات المراد نقلها</h5>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>كود المنتج</th>
-                                            <th>اسم المنتج</th>
-                                            <th>الكمية</th>
-                                            <th>الإجراءات</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>PRD-001</td>
-                                            <td>لاب توب ديل</td>
-                                            <td><input type="number" class="form-control" value="5"></td>
-                                            <td>
-                                                <div class="actions">
-                                                    <i class="bi bi-trash icon" title="حذف"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>PRD-002</td>
-                                            <td>طابعة HP</td>
-                                            <td><input type="number" class="form-control" value="3"></td>
-                                            <td>
-                                                <div class="actions">
-                                                    <i class="bi bi-trash icon" title="حذف"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button class="btn btn-primary mt-2" id="addProductButton">
-                                    <i class="bi bi-plus"></i> إضافة منتج
-                                </button>
+                <!-- Transfer Content -->
+                <div class="container-fluid dashboard-content">
+                    <!-- Transfer Details -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">تفاصيل النقل</h5>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label
+                                                for="fromWarehouse"
+                                                class="form-label"
+                                                >من المستودع</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="fromWarehouse"
+                                            >
+                                                <option value="WH-001">
+                                                    WH-001
+                                                </option>
+                                                <option value="WH-002">
+                                                    WH-002
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="toWarehouse"
+                                                class="form-label"
+                                                >إلى المستودع</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="toWarehouse"
+                                            >
+                                                <option value="WH-002">
+                                                    WH-002
+                                                </option>
+                                                <option value="WH-001">
+                                                    WH-001
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label
+                                                for="transferDate"
+                                                class="form-label"
+                                                >تاريخ النقل</label
+                                            >
+                                            <input
+                                                type="date"
+                                                class="form-control"
+                                                id="transferDate"
+                                            />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        المنتجات المراد نقلها
+                                    </h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>كود المنتج</th>
+                                                <th>اسم المنتج</th>
+                                                <th>الكمية</th>
+                                                <th>الإجراءات</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>PRD-001</td>
+                                                <td>لاب توب ديل</td>
+                                                <td>
+                                                    <input
+                                                        type="number"
+                                                        class="form-control"
+                                                        value="5"
+                                                    />
+                                                </td>
+                                                <td>
+                                                    <div class="actions">
+                                                        <i
+                                                            class="bi bi-trash icon"
+                                                            title="حذف"
+                                                        ></i>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>PRD-002</td>
+                                                <td>طابعة HP</td>
+                                                <td>
+                                                    <input
+                                                        type="number"
+                                                        class="form-control"
+                                                        value="3"
+                                                    />
+                                                </td>
+                                                <td>
+                                                    <div class="actions">
+                                                        <i
+                                                            class="bi bi-trash icon"
+                                                            title="حذف"
+                                                        ></i>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button
+                                        class="btn btn-primary mt-2"
+                                        id="addProductButton"
+                                    >
+                                        <i class="bi bi-plus"></i> إضافة منتج
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sweetalert.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // JavaScript لإدارة النقل باستخدام SweetAlert2
-        document.getElementById('addProductButton').addEventListener('click', function () {
-            Swal.fire({
-                title: 'إضافة منتج',
-                text: 'تم إضافة المنتج بنجاح إلى قائمة النقل!',
-                icon: 'success',
-                confirmButtonText: 'موافق'
-            });
-        });
-
-        document.getElementById('transferProductsButton').addEventListener('click', function () {
-            Swal.fire({
-                title: 'نقل المنتجات',
-                text: 'تم نقل المنتجات بنجاح بين المستودعات!',
-                icon: 'success',
-                confirmButtonText: 'موافق'
-            });
-        });
-
-        document.querySelectorAll('.table .icon').forEach(icon => {
-            icon.addEventListener('click', function () {
-                const action = this.getAttribute('title');
-                const productCode = this.closest('tr').querySelector('td:nth-child(2)').textContent;
-
-                if (action === 'حذف') {
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/sweetalert.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            // JavaScript لإدارة النقل باستخدام SweetAlert2
+            document
+                .getElementById("addProductButton")
+                .addEventListener("click", function () {
                     Swal.fire({
-                        title: 'حذف المنتج',
-                        text: `هل أنت متأكد من حذف المنتج ${productCode} من قائمة النقل؟`,
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'نعم، احذف',
-                        cancelButtonText: 'إلغاء'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: 'تم الحذف',
-                                text: `تم حذف المنتج ${productCode} بنجاح`,
-                                icon: 'success',
-                                confirmButtonText: 'موافق'
-                            });
-                        }
+                        title: "إضافة منتج",
+                        text: "تم إضافة المنتج بنجاح إلى قائمة النقل!",
+                        icon: "success",
+                        confirmButtonText: "موافق",
                     });
-                }
-            });
-        });
-    </script>
-</body>
+                });
 
+            document
+                .getElementById("transferProductsButton")
+                .addEventListener("click", function () {
+                    Swal.fire({
+                        title: "نقل المنتجات",
+                        text: "تم نقل المنتجات بنجاح بين المستودعات!",
+                        icon: "success",
+                        confirmButtonText: "موافق",
+                    });
+                });
+
+            document.querySelectorAll(".table .icon").forEach((icon) => {
+                icon.addEventListener("click", function () {
+                    const action = this.getAttribute("title");
+                    const productCode =
+                        this.closest("tr").querySelector(
+                            "td:nth-child(2)"
+                        ).textContent;
+
+                    if (action === "حذف") {
+                        Swal.fire({
+                            title: "حذف المنتج",
+                            text: `هل أنت متأكد من حذف المنتج ${productCode} من قائمة النقل؟`,
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonText: "نعم، احذف",
+                            cancelButtonText: "إلغاء",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Swal.fire({
+                                    title: "تم الحذف",
+                                    text: `تم حذف المنتج ${productCode} بنجاح`,
+                                    icon: "success",
+                                    confirmButtonText: "موافق",
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>

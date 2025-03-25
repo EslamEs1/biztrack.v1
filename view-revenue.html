@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>إضافة مستودع جديد</title>
+        <title>معاينة إيراد</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
         <link href="css/sweetalert.css" rel="stylesheet" />
@@ -22,7 +22,6 @@
 
     <body>
         <div class="wrapper">
-            <!-- Sidebar -->
             <!-- Sidebar -->
             <nav id="sidebar">
                 <div class="sidebar-header">
@@ -302,133 +301,51 @@
                             >
                                 <i class="bi bi-list fs-4"></i>
                             </button>
-                            <button
-                                id="sidebarCollapseDesktop"
-                                class="btn btn-link text-dark d-none d-lg-block me-2"
-                            >
-                                <i class="bi bi-list fs-4"></i>
-                            </button>
                         </div>
 
                         <!-- Center: Page Title -->
                         <div class="d-none d-md-block mx-auto">
-                            <h4 class="mb-0">إضافة مستودع جديد</h4>
+                            <h4 class="mb-0">معاينة إيراد</h4>
                         </div>
 
                         <!-- Left Side: Actions -->
                         <div class="d-flex align-items-center gap-3">
-                            <button
-                                class="btn btn-primary"
-                                id="saveWarehouseButton"
-                            >
-                                <i class="bi bi-save"></i> حفظ المستودع
-                            </button>
-                            <a href="warehouses.html" class="btn btn-secondary">
+                            <a href="edit-revenue.html" class="btn btn-primary">
+                                <i class="bi bi-pencil"></i> تعديل الإيراد
+                            </a>
+                            <a href="revenues.html" class="btn btn-secondary">
                                 <i class="bi bi-arrow-right"></i> رجوع
                             </a>
                         </div>
                     </div>
                 </nav>
 
-                <!-- Warehouse Content -->
+                <!-- View Revenue Details -->
                 <div class="container-fluid dashboard-content">
-                    <!-- Warehouse Details -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل المستودع</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="warehouseCode"
-                                                class="form-label"
-                                                >كود المستودع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseCode"
-                                                value="WH-003"
-                                                readonly
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="warehouseName"
-                                                class="form-label"
-                                                >اسم المستودع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="warehouseName"
-                                                placeholder="أدخل اسم المستودع"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="location"
-                                                class="form-label"
-                                                >الموقع</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="location"
-                                                placeholder="أدخل الموقع"
-                                            />
-                                        </div>
-                                    </form>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">تفاصيل الإيراد</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>رقم الإيراد:</strong> REV-001</p>
+                                    <p>
+                                        <strong>مصدر الإيراد:</strong> مدفوعات
+                                        العملاء
+                                    </p>
+                                    <p>
+                                        <strong>رقم الفاتورة:</strong> INV-001
+                                    </p>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل إضافية</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="capacity"
-                                                class="form-label"
-                                                >السعة (م²)</label
-                                            >
-                                            <input
-                                                type="number"
-                                                class="form-control"
-                                                id="capacity"
-                                                placeholder="أدخل السعة"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="contact"
-                                                class="form-label"
-                                                >رقم الاتصال</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="contact"
-                                                placeholder="أدخل رقم الاتصال"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="notes"
-                                                class="form-label"
-                                                >ملاحظات</label
-                                            >
-                                            <textarea
-                                                class="form-control"
-                                                id="notes"
-                                                rows="3"
-                                                placeholder="أدخل ملاحظات"
-                                            ></textarea>
-                                        </div>
-                                    </form>
+                                <div class="col-md-6">
+                                    <p><strong>المبلغ:</strong> 20000 جنيه</p>
+                                    <p>
+                                        <strong>تاريخ الإيراد:</strong>
+                                        2023-10-01
+                                    </p>
+                                    <p>
+                                        <strong>ملاحظات:</strong> إيراد من
+                                        فاتورة مبيعات
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -440,20 +357,5 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/sweetalert.js"></script>
         <script src="js/main.js"></script>
-        <script>
-            // JavaScript لتأكيد حفظ المستودع
-            document
-                .getElementById("saveWarehouseButton")
-                .addEventListener("click", function () {
-                    Swal.fire({
-                        title: "حفظ المستودع",
-                        text: "تم حفظ المستودع بنجاح!",
-                        icon: "success",
-                        confirmButtonText: "موافق",
-                    }).then(() => {
-                        window.location.href = "warehouses.html";
-                    });
-                });
-        </script>
     </body>
 </html>
