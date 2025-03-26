@@ -1,513 +1,252 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>فاتورة مبيعات</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/bootstrap-icons.min.css" rel="stylesheet" />
-        <link href="css/style.css" rel="stylesheet" />
-    </head>
 
-    <body>
-        <div class="wrapper">
-            <!-- Sidebar -->
-            <!-- Sidebar -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    <a class="text-align-center" href="#">
-                        <a href="index.html">
-                            <img
-                                src="img/logo/logo.png"
-                                alt="Logo"
-                                height="35"
-                            />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فاتورة مبيعات</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- إضافة خط Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- إضافة مكتبة Select2 للبحث في العملاء -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- إضافة مكتبة JsBarcode للباركود -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .select2-container {
+            width: 100% !important;
+        }
+        .barcode {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <!-- كود الـ Sidebar اللي عملناه قبل كده -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Right Side: Menu Button -->
+                    <div class="d-flex align-items-center">
+                        <button id="sidebarCollapse" class="btn btn-link text-dark d-lg-none me-2">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Center: Page Title -->
+                    <div class="d-none d-md-block mx-auto">
+                        <h4 class="mb-0">فاتورة مبيعات</h4>
+                    </div>
+
+                    <!-- Left Side: Actions -->
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="btn btn-primary" id="saveInvoiceButton">
+                            <i class="bi bi-save"></i> حفظ الفاتورة
+                        </button>
+                        <a href="invoices-list.html" class="btn btn-secondary">
+                            <i class="bi bi-arrow-right"></i> رجوع
                         </a>
-                    </a>
+                    </div>
                 </div>
-
-                <ul class="list-unstyled components">
-                    <!-- المبيعات -->
-                    <li>
-                        <a href="#salesSubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-cart"></i> المبيعات
-                        </a>
-                        <ul class="collapse list-unstyled" id="salesSubmenu">
-                            <li>
-                                <a href="create-invoice.html"
-                                    ><i class="bi bi-file-text"></i> فاتورة
-                                    مبيعات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="invoices-list.html"
-                                    ><i class="bi bi-gear"></i> إدارة
-                                    الفواتير</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-payments.html"
-                                    ><i class="bi bi-cash"></i> مدفوعات
-                                    العملاء</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- العملاء -->
-                    <li>
-                        <a href="#customersSubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-people"></i> العملاء
-                        </a>
-                        <ul
-                            class="collapse list-unstyled"
-                            id="customersSubmenu"
-                        >
-                            <li>
-                                <a href="customers.html"
-                                    ><i class="bi bi-person-lines-fill"></i>
-                                    إدارة العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="crm.html"
-                                    ><i class="bi bi-chat-dots"></i> إدارة
-                                    علاقات العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-followup.html"
-                                    ><i class="bi bi-calendar-check"></i> متابعة
-                                    العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-reports.html"
-                                    ><i class="bi bi-bar-chart"></i> تقارير
-                                    العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-notifications.html"
-                                    ><i class="bi bi-bell"></i> إشعارات
-                                    العملاء</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- المشتريات -->
-                    <li>
-                        <a href="#purchasesSubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-bag"></i> المشتريات
-                        </a>
-                        <ul
-                            class="collapse list-unstyled"
-                            id="purchasesSubmenu"
-                        >
-                            <li>
-                                <a href="suppliers.html"
-                                    ><i class="bi bi-people"></i> إدارة
-                                    الموردين</a
-                                >
-                            </li>
-                            <li>
-                                <a href="purchase-orders.html"
-                                    ><i class="bi bi-cart-plus"></i> طلبات
-                                    الشراء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="purchase-invoices.html"
-                                    ><i class="bi bi-receipt"></i> فواتير
-                                    الشراء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="supplier-payments.html"
-                                    ><i class="bi bi-cash"></i> مدفوعات
-                                    الموردين</a
-                                >
-                            </li>
-                            <li>
-                                <a href="purchase-reports.html"
-                                    ><i class="bi bi-bar-chart"></i> تقارير
-                                    المشتريات</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- المخازن -->
-                    <li>
-                        <a href="#inventorySubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-box-seam"></i> المخازن
-                        </a>
-                        <ul
-                            class="collapse list-unstyled"
-                            id="inventorySubmenu"
-                        >
-                            <li>
-                                <a href="products.html"
-                                    ><i class="bi bi-box"></i> المنتجات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-check.html"
-                                    ><i class="bi bi-list-check"></i> إدارة
-                                    الجرد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-movement.html"
-                                    ><i class="bi bi-arrow-left-right"></i> حركة
-                                    المخزون</a
-                                >
-                            </li>
-                            <li>
-                                <a href="warehouses.html"
-                                    ><i class="bi bi-house"></i> إدارة
-                                    المستودعات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="track-products.html"
-                                    ><i class="bi bi-search"></i> تتبع
-                                    المنتجات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-settings.html"
-                                    ><i class="bi bi-gear"></i> إعدادات
-                                    المخازن</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-reports.html"
-                                    ><i class="bi bi-bar-chart"></i> تقارير
-                                    المخازن</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-notifications.html"
-                                    ><i class="bi bi-bell"></i> إشعارات
-                                    المخزون</a
-                                >
-                            </li>
-                            <li>
-                                <a href="transfer-products.html"
-                                    ><i class="bi bi-arrow-left-right"></i> نقل
-                                    المنتجات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="shelves-management.html"
-                                    ><i class="bi bi-boxes"></i> إدارة الأرفف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="barcode-management.html"
-                                    ><i class="bi bi-upc-scan"></i> إدارة
-                                    الباركود</a
-                                >
-                            </li>
-                            <li>
-                                <a href="bundled-products.html"
-                                    ><i class="bi bi-boxes"></i> المنتجات
-                                    المجمعة</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- الخزينة -->
-                    <li>
-                        <a href="#treasurySubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-cash-stack"></i> الخزينة
-                        </a>
-                        <ul class="collapse list-unstyled" id="treasurySubmenu">
-                            <li>
-                                <a href="revenues.html"
-                                    ><i class="bi bi-arrow-down"></i>
-                                    الإيرادات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="create-revenue.html"
-                                    ><i class="bi bi-plus"></i> إضافة إيراد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="edit-revenue.html"
-                                    ><i class="bi bi-pencil"></i> تعديل إيراد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="view-revenue.html"
-                                    ><i class="bi bi-eye"></i> معاينة إيراد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="expenses.html"
-                                    ><i class="bi bi-arrow-up"></i> المصروفات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="create-expense.html"
-                                    ><i class="bi bi-plus"></i> إضافة مصروف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="edit-expense.html"
-                                    ><i class="bi bi-pencil"></i> تعديل مصروف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="view-expense.html"
-                                    ><i class="bi bi-eye"></i> معاينة مصروف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="current-balance.html"
-                                    ><i class="bi bi-wallet"></i> الرصيد
-                                    الحالي</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
             </nav>
 
-            <!-- Page Content -->
-            <div id="content">
-                <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <!-- Right Side: Menu Button and Logo -->
-                        <div class="d-flex align-items-center">
-                            <button
-                                id="sidebarCollapse"
-                                class="btn btn-link text-dark d-lg-none me-2"
-                            >
-                                <i class="bi bi-list fs-4"></i>
-                            </button>
-                            <button
-                                id="sidebarCollapseDesktop"
-                                class="btn btn-link text-dark d-none d-lg-block me-2"
-                            >
-                                <i class="bi bi-list fs-4"></i>
-                            </button>
-                        </div>
-
-                        <!-- Center: Page Title -->
-                        <div class="d-none d-md-block mx-auto">
-                            <h4 class="mb-0">فاتورة مبيعات</h4>
-                        </div>
-
-                        <!-- Left Side: Actions -->
-                        <div class="d-flex align-items-center gap-3">
-                            <button class="btn btn-primary">
-                                <i class="bi bi-save"></i> حفظ الفاتورة
-                            </button>
-                            <a
-                                href="invoice -preview.html"
-                                class="btn btn-success"
-                            >
-                                <i class="bi bi-eye"></i> معاينة الفاتورة
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-
-                <!-- Invoice Content -->
-                <div class="container-fluid dashboard-content">
-                    <!-- Invoice Details -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">تفاصيل الفاتورة</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="invoiceNumber"
-                                                class="form-label"
-                                                >رقم الفاتورة</label
-                                            >
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="invoiceNumber"
-                                                value="INV-001"
-                                                readonly
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="invoiceDate"
-                                                class="form-label"
-                                                >تاريخ الفاتورة</label
-                                            >
-                                            <input
-                                                type="date"
-                                                class="form-control"
-                                                id="invoiceDate"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="customer"
-                                                class="form-label"
-                                                >العميل</label
-                                            >
-                                            <select
-                                                class="form-select"
-                                                id="customer"
-                                            >
-                                                <option selected>
-                                                    اختر العميل
-                                                </option>
-                                                <option value="1">
-                                                    أحمد محمد
-                                                </option>
-                                                <option value="2">
-                                                    شركة السلام
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="currency"
-                                                class="form-label"
-                                                >العملة</label
-                                            >
-                                            <select
-                                                class="form-select"
-                                                id="currency"
-                                            >
-                                                <option selected>
-                                                    اختر العملة
-                                                </option>
-                                                <option value="SAR">
-                                                    ريال سعودي (SAR)
-                                                </option>
-                                                <option value="EGP">
-                                                    جنيه مصري (EGP)
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right Side: Shipping Details -->
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
+            <!-- Create Invoice Form -->
+            <div class="container-fluid dashboard-content">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">بيانات الفاتورة</h5>
+                        <form>
+                            <div class="row">
+                                <!-- Invoice Number (Auto-generated, Numbers Only) -->
+                                <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label
-                                            for="salesPerson"
-                                            class="form-label"
-                                            >مسئول المبيعات</label
-                                        >
-                                        <select
-                                            class="form-select"
-                                            id="salesPerson"
-                                        >
-                                            <option selected>
-                                                اختر مسئول المبيعات
-                                            </option>
-                                            <option value="1">محمد أحمد</option>
-                                            <option value="2">علي محمود</option>
+                                        <label for="invoiceNumber" class="form-label">رقم الفاتورة</label>
+                                        <input type="text" class="form-control" id="invoiceNumber" value="1001" readonly>
+                                    </div>
+                                </div>
+
+                                <!-- Invoice Date (Auto-filled with Today's Date) -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="invoiceDate" class="form-label">تاريخ الفاتورة</label>
+                                        <input type="date" class="form-control" id="invoiceDate" readonly>
+                                    </div>
+                                </div>
+
+                                <!-- Customer Selection with Search -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="customer" class="form-label">اختر العميل</label>
+                                        <select class="form-select" id="customer">
+                                            <option value="">اختر عميل</option>
+                                            <option value="customer1">عميل 1 - أحمد محمد</option>
+                                            <option value="customer2">عميل 2 - محمد علي</option>
+                                            <option value="customer3">عميل 3 - خالد حسن</option>
                                         </select>
                                     </div>
+                                </div>
+
+                                <!-- Currency (Fixed to EGP) -->
+                                <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label
-                                            for="issueDate"
-                                            class="form-label"
-                                            >تاريخ الإصدار</label
-                                        >
-                                        <input
-                                            type="date"
-                                            class="form-control"
-                                            id="issueDate"
-                                        />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label
-                                            for="paymentTerms"
-                                            class="form-label"
-                                            >شروط الدفع (أيام)</label
-                                        >
-                                        <input
-                                            type="number"
-                                            class="form-control"
-                                            id="paymentTerms"
-                                            value="0"
-                                        />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="notes" class="form-label"
-                                            >ملاحظات</label
-                                        >
-                                        <textarea
-                                            class="form-control"
-                                            id="notes"
-                                            rows="3"
-                                        ></textarea>
+                                        <label for="currency" class="form-label">العملة</label>
+                                        <input type="text" class="form-control" id="currency" value="جنيه مصري" readonly>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">بيانات الشحن</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="shippingAddress"
-                                                class="form-label"
-                                                >عنوان الشحن</label
-                                            >
-                                            <textarea
-                                                class="form-control"
-                                                id="shippingAddress"
-                                                rows="3"
-                                            ></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="shippingDate"
-                                                class="form-label"
-                                                >تاريخ الشحن</label
-                                            >
-                                            <input
-                                                type="date"
-                                                class="form-control"
-                                                id="shippingDate"
-                                            />
-                                        </div>
-                                    </form>
+                                <!-- Customer Details (Governorate, Center, Phone) -->
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="governorate" class="form-label">المحافظة</label>
+                                        <select class="form-select" id="governorate">
+                                            <option value="">اختر المحافظة</option>
+                                            <option value="cairo">القاهرة</option>
+                                            <option value="giza">الجيزة</option>
+                                            <option value="alexandria">الإسكندرية</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="center" class="form-label">المركز</label>
+                                        <input type="text" class="form-control" id="center" placeholder="أدخل المركز">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">رقم التليفون</label>
+                                        <input type="text" class="form-control" id="phone" placeholder="أدخل رقم التليفون">
+                                    </div>
+                                </div>
 
-                    <!-- Invoice Items Table -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">بنود الفاتورة</h5>
-                                    <table class="table" id="invoiceItemsTable">
+                                <!-- Shipping Details -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="shippingDate" class="form-label">تاريخ الشحن</label>
+                                        <input type="date" class="form-control" id="shippingDate">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="expectedDeliveryDate" class="form-label">تاريخ الاستلام المتوقع</label>
+                                        <input type="date" class="form-control" id="expectedDeliveryDate">
+                                    </div>
+                                </div>
+
+                                <!-- Shipping Company with Comparison -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="shippingCompany" class="form-label">شركة الشحن</label>
+                                        <select class="form-select" id="shippingCompany" onchange="updateShippingDays()">
+                                            <option value="">اختر شركة الشحن</option>
+                                            <option value="egyptPost">البريد المصري</option>
+                                            <option value="aramex">أرامكس</option>
+                                            <option value="dhl">DHL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">عدد أيام الشحن</label>
+                                        <div id="shippingDaysInfo">
+                                            <!-- سيتم تحديث هذا الحقل بناءً على اختيار المحافظة وشركة الشحن -->
+                                            <p>اختر المحافظة وشركة الشحن لعرض عدد الأيام</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Terms -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="paymentTerms" class="form-label">شروط الدفع</label>
+                                        <select class="form-select" id="paymentTerms" onchange="toggleInstallmentDetails()">
+                                            <option value="immediate">فوري</option>
+                                            <option value="deferred">آجل</option>
+                                            <option value="installment">تقسيط</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Installment Details (Hidden by Default) -->
+                                <div class="col-md-6" id="installmentDetails" style="display: none;">
+                                    <div class="mb-3">
+                                        <label for="installmentCount" class="form-label">عدد الأقساط</label>
+                                        <input type="number" class="form-control" id="installmentCount" placeholder="أدخل عدد الأقساط">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="installmentAmount" class="form-label">قيمة القسط</label>
+                                        <input type="number" class="form-control" id="installmentAmount" placeholder="سيتم الحساب تلقائيًا" readonly>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Method -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="paymentMethod" class="form-label">طريقة الدفع</label>
+                                        <select class="form-select" id="paymentMethod">
+                                            <option value="deferred">آجل</option>
+                                            <option value="bank">بنك</option>
+                                            <option value="cash">كاش</option>
+                                            <option value="vodafoneCash">فودافون كاش</option>
+                                            <option value="installment">تقسيط</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Warehouse and Employee -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="warehouse" class="form-label">المخزن</label>
+                                        <select class="form-select" id="warehouse">
+                                            <option value="">اختر المخزن</option>
+                                            <option value="warehouse1">مخزن 1 - القاهرة</option>
+                                            <option value="warehouse2">مخزن 2 - الجيزة</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="employee" class="form-label">الموظف المسؤول</label>
+                                        <select class="form-select" id="employee">
+                                            <option value="">اختر الموظف</option>
+                                            <option value="employee1">موظف 1 - أحمد</option>
+                                            <option value="employee2">موظف 2 - محمد</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Pricing Type -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="pricingType" class="form-label">نوع التسعير</label>
+                                        <select class="form-select" id="pricingType" onchange="updateProductPrices()">
+                                            <option value="retail">قطاعي</option>
+                                            <option value="wholesale">جملة</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Products Table -->
+                                <div class="col-md-12">
+                                    <h5>المنتجات</h5>
+                                    <table class="table" id="productsTable">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
                                                 <th>المنتج</th>
-                                                <th>الوصف</th>
                                                 <th>الكمية</th>
                                                 <th>السعر</th>
                                                 <th>الإجمالي</th>
@@ -515,172 +254,220 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- البنود ستضاف هنا -->
+                                            <tr>
+                                                <td>
+                                                    <select class="form-select product-select">
+                                                        <option value="product1">منتج 1</option>
+                                                        <option value="product2">منتج 2</option>
+                                                    </select>
+                                                </td>
+                                                <td><input type="number" class="form-control quantity" value="1" min="1"></td>
+                                                <td><input type="number" class="form-control price" value="100" readonly></td>
+                                                <td><input type="number" class="form-control total" value="100" readonly></td>
+                                                <td><button type="button" class="btn btn-danger remove-row"><i class="bi bi-trash"></i></button></td>
+                                            </tr>
                                         </tbody>
                                     </table>
-                                    <button
-                                        class="btn btn-primary"
-                                        id="addItemButton"
-                                    >
-                                        <i class="bi bi-plus"></i> إضافة بند
-                                        جديد
-                                    </button>
+                                    <button type="button" class="btn btn-primary" id="addProductRow">إضافة منتج</button>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Discounts and Taxes -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">الخصومات</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="discount"
-                                                class="form-label"
-                                                >الخصم</label
-                                            >
-                                            <input
-                                                type="number"
-                                                class="form-control"
-                                                id="discount"
-                                                value="0"
-                                            />
-                                        </div>
-                                    </form>
+                                <!-- Discounts -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="discountPercentage" class="form-label">الخصم (نسبة %)</label>
+                                        <input type="number" class="form-control" id="discountPercentage" placeholder="أدخل نسبة الخصم" onchange="calculateTotal()">
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">الضرائب</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="tax" class="form-label"
-                                                >الضريبة</label
-                                            >
-                                            <input
-                                                type="number"
-                                                class="form-control"
-                                                id="tax"
-                                                value="0"
-                                            />
-                                        </div>
-                                    </form>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="discountAmount" class="form-label">الخصم (مبلغ محدد)</label>
+                                        <input type="number" class="form-control" id="discountAmount" placeholder="أدخل مبلغ الخصم" onchange="calculateTotal()">
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Advanced Payment -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">الدفعة المقدمة</h5>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label
-                                                for="advancePayment"
-                                                class="form-label"
-                                                >المبلغ المقدم</label
-                                            >
-                                            <input
-                                                type="number"
-                                                class="form-control"
-                                                id="advancePayment"
-                                                value="0"
-                                            />
-                                        </div>
-                                    </form>
+                                <!-- Total -->
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="totalAmount" class="form-label">الإجمالي</label>
+                                        <input type="number" class="form-control" id="totalAmount" readonly>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Totals -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">الإجماليات</h5>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p>
-                                                الإجمالي قبل الخصم والضريبة:
-                                                <strong>0 ج.م</strong>
-                                            </p>
-                                            <p>الخصم: <strong>0 ج.م</strong></p>
-                                            <p>
-                                                الضريبة: <strong>0 ج.م</strong>
-                                            </p>
-                                            <p>
-                                                الدفعة المقدمة:
-                                                <strong>0 ج.م</strong>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p>
-                                                الإجمالي النهائي:
-                                                <strong>0 ج.م</strong>
-                                            </p>
-                                        </div>
+                                <!-- Barcode and Code -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">باركود الفاتورة</label>
+                                        <svg id="barcode"></svg>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="invoiceCode" class="form-label">كود الفاتورة</label>
+                                        <input type="text" class="form-control" id="invoiceCode" value="INV-2023-1001" readonly>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-        <script>
-            // JavaScript لإضافة بنود جديدة
-            document
-                .getElementById("addItemButton")
-                .addEventListener("click", function () {
-                    const tableBody = document.querySelector(
-                        "#invoiceItemsTable tbody"
-                    );
-                    const rowCount =
-                        tableBody.querySelectorAll("tr").length + 1;
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script src="js/main.js"></script>
+    <!-- إضافة مكتبة jQuery وSelect2 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        // تعيين تاريخ اليوم تلقائيًا
+        document.getElementById('invoiceDate').value = new Date().toISOString().split('T')[0];
 
-                    const newRow = `
+        // تفعيل البحث في حقل العميل
+        $(document).ready(function () {
+            $('#customer').select2({
+                placeholder: "ابحث عن عميل",
+                allowClear: true
+            });
+        });
+
+        // إضافة باركود
+        JsBarcode("#barcode", "1001", {
+            format: "CODE128",
+            displayValue: true,
+            height: 50,
+            width: 2
+        });
+
+        // إضافة منتج جديد
+        document.getElementById('addProductRow').addEventListener('click', function () {
+            const row = `
                 <tr>
-                    <td>${rowCount}</td>
                     <td>
-                        <select class="form-select">
-                            <option selected>اختر المنتج</option>
-                            <option value="1">منتج 1</option>
-                            <option value="2">منتج 2</option>
+                        <select class="form-select product-select">
+                            <option value="product1">منتج 1</option>
+                            <option value="product2">منتج 2</option>
                         </select>
                     </td>
-                    <td><input type="text" class="form-control" placeholder="وصف البند"></td>
-                    <td><input type="number" class="form-control" value="1"></td>
-                    <td><input type="number" class="form-control" value="100"></td>
-                    <td>100 ج.م</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            `;
+                    <td><input type="number" class="form-control quantity" value="1" min="1"></td>
+                    <td><input type="number" class="form-control price" value="100" readonly></td>
+                    <td><input type="number" class="form-control total" value="100" readonly></td>
+                    <td><button type="button" class="btn btn-danger remove-row"><i class="bi bi-trash"></i></button></td>
+                </tr>`;
+            document.querySelector('#productsTable tbody').insertAdjacentHTML('beforeend', row);
+            updateProductPrices();
+        });
 
-                    tableBody.insertAdjacentHTML("beforeend", newRow);
-                });
-
-            // JavaScript لحذف البنود
-            function deleteRow(button) {
-                const row = button.closest("tr");
-                row.remove();
+        // حذف صف منتج
+        document.querySelector('#productsTable').addEventListener('click', function (e) {
+            if (e.target.closest('.remove-row')) {
+                e.target.closest('tr').remove();
+                calculateTotal();
             }
-        </script>
-    </body>
+        });
+
+        // تحديث الأسعار بناءً على نوع التسعير
+        function updateProductPrices() {
+            const pricingType = document.getElementById('pricingType').value;
+            const rows = document.querySelectorAll('#productsTable tbody tr');
+            rows.forEach(row => {
+                const priceInput = row.querySelector('.price');
+                const quantityInput = row.querySelector('.quantity');
+                const totalInput = row.querySelector('.total');
+                let price = pricingType === 'retail' ? 100 : 80; // مثال: سعر القطاعي 100، الجملة 80
+                priceInput.value = price;
+                totalInput.value = price * quantityInput.value;
+            });
+            calculateTotal();
+        }
+
+        // حساب الإجمالي
+        function calculateTotal() {
+            let total = 0;
+            document.querySelectorAll('#productsTable .total').forEach(totalInput => {
+                total += parseFloat(totalInput.value) || 0;
+            });
+
+            // تطبيق الخصم
+            const discountPercentage = parseFloat(document.getElementById('discountPercentage').value) || 0;
+            const discountAmount = parseFloat(document.getElementById('discountAmount').value) || 0;
+            const percentageDiscount = (total * discountPercentage) / 100;
+            total = total - percentageDiscount - discountAmount;
+
+            document.getElementById('totalAmount').value = total.toFixed(2);
+
+            // تحديث قيمة القسط لو اختار تقسيط
+            const paymentTerms = document.getElementById('paymentTerms').value;
+            if (paymentTerms === 'installment') {
+                const installmentCount = parseInt(document.getElementById('installmentCount').value) || 1;
+                document.getElementById('installmentAmount').value = (total / installmentCount).toFixed(2);
+            }
+        }
+
+        // إظهار/إخفاء تفاصيل التقسيط
+        function toggleInstallmentDetails() {
+            const paymentTerms = document.getElementById('paymentTerms').value;
+            const installmentDetails = document.getElementById('installmentDetails');
+            if (paymentTerms === 'installment') {
+                installmentDetails.style.display = 'block';
+            } else {
+                installmentDetails.style.display = 'none';
+            }
+            calculateTotal();
+        }
+
+        // تحديث عدد أيام الشحن بناءً على المحافظة وشركة الشحن
+        function updateShippingDays() {
+            const governorate = document.getElementById('governorate').value;
+            const shippingCompany = document.getElementById('shippingCompany').value;
+            const shippingDaysInfo = document.getElementById('shippingDaysInfo');
+
+            if (!governorate || !shippingCompany) {
+                shippingDaysInfo.innerHTML = '<p>اختر المحافظة وشركة الشحن لعرض عدد الأيام</p>';
+                return;
+            }
+
+            // مثال على بيانات عدد الأيام (يمكن تعديلها حسب الحاجة)
+            const shippingData = {
+                cairo: {
+                    egyptPost: 5,
+                    aramex: 4,
+                    dhl: 3
+                },
+                giza: {
+                    egyptPost: 4,
+                    aramex: 3,
+                    dhl: 2
+                },
+                alexandria: {
+                    egyptPost: 6,
+                    aramex: 5,
+                    dhl: 4
+                }
+            };
+
+            const days = shippingData[governorate][shippingCompany];
+            shippingDaysInfo.innerHTML = `
+                <p>عدد أيام الشحن إلى ${governorate} مع ${shippingCompany}: ${days} أيام</p>
+                <p>البريد المصري: ${shippingData[governorate].egyptPost} أيام</p>
+                <p>أرامكس: ${shippingData[governorate].aramex} أيام</p>
+                <p>DHL: ${shippingData[governorate].dhl} أيام</p>
+            `;
+        }
+
+        // حفظ الفاتورة
+        document.getElementById('saveInvoiceButton').addEventListener('click', function () {
+            Swal.fire({
+                title: 'حفظ الفاتورة',
+                text: 'تم حفظ الفاتورة بنجاح!',
+                icon: 'success',
+                confirmButtonText: 'موافق'
+            }).then(() => {
+                window.location.href = 'invoices-list.html';
+            });
+        });
+    </script>
+</body>
+
 </html>
