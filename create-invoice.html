@@ -20,17 +20,21 @@
         body {
             font-family: 'Cairo', sans-serif;
         }
+
         .select2-container {
             width: 100% !important;
         }
+
         /* القليل من الـ Custom CSS لتحسين الشكل */
         .stock-info {
             font-size: 0.85rem;
             color: #6c757d;
         }
+
         .change-price-btn {
             font-size: 0.85rem;
         }
+
         .generate-btn {
             font-size: 0.85rem;
             padding: 2px 5px;
@@ -40,271 +44,190 @@
 
 <body>
     <div class="wrapper">
-         <!-- Sidebar -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    <a class="text-align-center" href="#">
-                        <a href="index.html">
-                            <img
-                                src="img/logo/logo.png"
-                                alt="Logo"
-                                height="35"
-                            />
-                        </a>
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <a class="text-align-center" href="#">
+                    <a href="index.html">
+                        <img src="img/logo/logo.png" alt="Logo" height="35" />
                     </a>
-                </div>
+                </a>
+            </div>
 
-                <ul class="list-unstyled components">
-                    <!-- المبيعات -->
-                    <li>
-                        <a href="#salesSubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-cart"></i> المبيعات
-                        </a>
-                        <ul class="collapse list-unstyled" id="salesSubmenu">
-                            <li>
-                                <a href="create-invoice.html"
-                                    ><i class="bi bi-file-text"></i> فاتورة
-                                    مبيعات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="invoices-list.html"
-                                    ><i class="bi bi-gear"></i> إدارة
-                                    الفواتير</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-payments.html"
-                                    ><i class="bi bi-cash"></i> مدفوعات
-                                    العملاء</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
+            <ul class="list-unstyled components">
+                <!-- المبيعات -->
+                <li>
+                    <a href="#salesSubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-cart"></i> المبيعات
+                    </a>
+                    <ul class="collapse list-unstyled" id="salesSubmenu">
+                        <li>
+                            <a href="create-invoice.html"><i class="bi bi-file-text"></i> فاتورة
+                                مبيعات</a>
+                        </li>
+                        <li>
+                            <a href="invoices-list.html"><i class="bi bi-gear"></i> إدارة
+                                الفواتير</a>
+                        </li>
+                        <li>
+                            <a href="customer-payments.html"><i class="bi bi-cash"></i> مدفوعات
+                                العملاء</a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <!-- العملاء -->
-                    <li>
-                        <a href="#customersSubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-people"></i> العملاء
-                        </a>
-                        <ul
-                            class="collapse list-unstyled"
-                            id="customersSubmenu"
-                        >
-                            <li>
-                                <a href="customers.html"
-                                    ><i class="bi bi-person-lines-fill"></i>
-                                    إدارة العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="crm.html"
-                                    ><i class="bi bi-chat-dots"></i> إدارة
-                                    علاقات العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-followup.html"
-                                    ><i class="bi bi-calendar-check"></i> متابعة
-                                    العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-reports.html"
-                                    ><i class="bi bi-bar-chart"></i> تقارير
-                                    العملاء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="customer-notifications.html"
-                                    ><i class="bi bi-bell"></i> إشعارات
-                                    العملاء</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
+                <!-- العملاء -->
+                <li>
+                    <a href="#customersSubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-people"></i> العملاء
+                    </a>
+                    <ul class="collapse list-unstyled" id="customersSubmenu">
+                        <li>
+                            <a href="customers.html"><i class="bi bi-person-lines-fill"></i>
+                                إدارة العملاء</a>
+                        </li>
+                        <li>
+                            <a href="crm.html"><i class="bi bi-chat-dots"></i> إدارة
+                                علاقات العملاء</a>
+                        </li>
+                        <li>
+                            <a href="customer-followup.html"><i class="bi bi-calendar-check"></i> متابعة
+                                العملاء</a>
+                        </li>
+                        <li>
+                            <a href="customer-reports.html"><i class="bi bi-bar-chart"></i> تقارير
+                                العملاء</a>
+                        </li>
+                        <li>
+                            <a href="customer-notifications.html"><i class="bi bi-bell"></i> إشعارات
+                                العملاء</a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <!-- المشتريات -->
-                    <li>
-                        <a href="#purchasesSubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-bag"></i> المشتريات
-                        </a>
-                        <ul
-                            class="collapse list-unstyled"
-                            id="purchasesSubmenu"
-                        >
-                            <li>
-                                <a href="suppliers.html"
-                                    ><i class="bi bi-people"></i> إدارة
-                                    الموردين</a
-                                >
-                            </li>
-                            <li>
-                                <a href="purchase-orders.html"
-                                    ><i class="bi bi-cart-plus"></i> طلبات
-                                    الشراء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="purchase-invoices.html"
-                                    ><i class="bi bi-receipt"></i> فواتير
-                                    الشراء</a
-                                >
-                            </li>
-                            <li>
-                                <a href="supplier-payments.html"
-                                    ><i class="bi bi-cash"></i> مدفوعات
-                                    الموردين</a
-                                >
-                            </li>
-                            <li>
-                                <a href="purchase-reports.html"
-                                    ><i class="bi bi-bar-chart"></i> تقارير
-                                    المشتريات</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
+                <!-- المشتريات -->
+                <li>
+                    <a href="#purchasesSubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-bag"></i> المشتريات
+                    </a>
+                    <ul class="collapse list-unstyled" id="purchasesSubmenu">
+                        <li>
+                            <a href="suppliers.html"><i class="bi bi-people"></i> إدارة
+                                الموردين</a>
+                        </li>
+                        <li>
+                            <a href="purchase-orders.html"><i class="bi bi-cart-plus"></i> طلبات
+                                الشراء</a>
+                        </li>
+                        <li>
+                            <a href="purchase-invoices.html"><i class="bi bi-receipt"></i> فواتير
+                                الشراء</a>
+                        </li>
+                        <li>
+                            <a href="supplier-payments.html"><i class="bi bi-cash"></i> مدفوعات
+                                الموردين</a>
+                        </li>
+                        <li>
+                            <a href="purchase-reports.html"><i class="bi bi-bar-chart"></i> تقارير
+                                المشتريات</a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <!-- المخازن -->
-                    <li>
-                        <a href="#inventorySubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-box-seam"></i> المخازن
-                        </a>
-                        <ul
-                            class="collapse list-unstyled"
-                            id="inventorySubmenu"
-                        >
-                            <li>
-                                <a href="products.html"
-                                    ><i class="bi bi-box"></i> المنتجات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-check.html"
-                                    ><i class="bi bi-list-check"></i> إدارة
-                                    الجرد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-movement.html"
-                                    ><i class="bi bi-arrow-left-right"></i> حركة
-                                    المخزون</a
-                                >
-                            </li>
-                            <li>
-                                <a href="warehouses.html"
-                                    ><i class="bi bi-house"></i> إدارة
-                                    المستودعات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="track-products.html"
-                                    ><i class="bi bi-search"></i> تتبع
-                                    المنتجات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-settings.html"
-                                    ><i class="bi bi-gear"></i> إعدادات
-                                    المخازن</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-reports.html"
-                                    ><i class="bi bi-bar-chart"></i> تقارير
-                                    المخازن</a
-                                >
-                            </li>
-                            <li>
-                                <a href="inventory-notifications.html"
-                                    ><i class="bi bi-bell"></i> إشعارات
-                                    المخزون</a
-                                >
-                            </li>
-                            <li>
-                                <a href="transfer-products.html"
-                                    ><i class="bi bi-arrow-left-right"></i> نقل
-                                    المنتجات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="shelves-management.html"
-                                    ><i class="bi bi-boxes"></i> إدارة الأرفف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="barcode-management.html"
-                                    ><i class="bi bi-upc-scan"></i> إدارة
-                                    الباركود</a
-                                >
-                            </li>
-                            <li>
-                                <a href="bundled-products.html"
-                                    ><i class="bi bi-boxes"></i> المنتجات
-                                    المجمعة</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
+                <!-- المخازن -->
+                <li>
+                    <a href="#inventorySubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-box-seam"></i> المخازن
+                    </a>
+                    <ul class="collapse list-unstyled" id="inventorySubmenu">
+                        <li>
+                            <a href="products.html"><i class="bi bi-box"></i> المنتجات</a>
+                        </li>
+                        <li>
+                            <a href="inventory-check.html"><i class="bi bi-list-check"></i> إدارة
+                                الجرد</a>
+                        </li>
+                        <li>
+                            <a href="inventory-movement.html"><i class="bi bi-arrow-left-right"></i> حركة
+                                المخزون</a>
+                        </li>
+                        <li>
+                            <a href="warehouses.html"><i class="bi bi-house"></i> إدارة
+                                المستودعات</a>
+                        </li>
+                        <li>
+                            <a href="track-products.html"><i class="bi bi-search"></i> تتبع
+                                المنتجات</a>
+                        </li>
+                        <li>
+                            <a href="inventory-settings.html"><i class="bi bi-gear"></i> إعدادات
+                                المخازن</a>
+                        </li>
+                        <li>
+                            <a href="inventory-reports.html"><i class="bi bi-bar-chart"></i> تقارير
+                                المخازن</a>
+                        </li>
+                        <li>
+                            <a href="inventory-notifications.html"><i class="bi bi-bell"></i> إشعارات
+                                المخزون</a>
+                        </li>
+                        <li>
+                            <a href="transfer-products.html"><i class="bi bi-arrow-left-right"></i> نقل
+                                المنتجات</a>
+                        </li>
+                        <li>
+                            <a href="shelves-management.html"><i class="bi bi-boxes"></i> إدارة الأرفف</a>
+                        </li>
+                        <li>
+                            <a href="barcode-management.html"><i class="bi bi-upc-scan"></i> إدارة
+                                الباركود</a>
+                        </li>
+                        <li>
+                            <a href="bundled-products.html"><i class="bi bi-boxes"></i> المنتجات
+                                المجمعة</a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <!-- الخزينة -->
-                    <li>
-                        <a href="#treasurySubmenu" data-bs-toggle="collapse">
-                            <i class="bi bi-cash-stack"></i> الخزينة
-                        </a>
-                        <ul class="collapse list-unstyled" id="treasurySubmenu">
-                            <li>
-                                <a href="revenues.html"
-                                    ><i class="bi bi-arrow-down"></i>
-                                    الإيرادات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="create-revenue.html"
-                                    ><i class="bi bi-plus"></i> إضافة إيراد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="edit-revenue.html"
-                                    ><i class="bi bi-pencil"></i> تعديل إيراد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="view-revenue.html"
-                                    ><i class="bi bi-eye"></i> معاينة إيراد</a
-                                >
-                            </li>
-                            <li>
-                                <a href="expenses.html"
-                                    ><i class="bi bi-arrow-up"></i> المصروفات</a
-                                >
-                            </li>
-                            <li>
-                                <a href="create-expense.html"
-                                    ><i class="bi bi-plus"></i> إضافة مصروف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="edit-expense.html"
-                                    ><i class="bi bi-pencil"></i> تعديل مصروف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="view-expense.html"
-                                    ><i class="bi bi-eye"></i> معاينة مصروف</a
-                                >
-                            </li>
-                            <li>
-                                <a href="current-balance.html"
-                                    ><i class="bi bi-wallet"></i> الرصيد
-                                    الحالي</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+                <!-- الخزينة -->
+                <li>
+                    <a href="#treasurySubmenu" data-bs-toggle="collapse">
+                        <i class="bi bi-cash-stack"></i> الخزينة
+                    </a>
+                    <ul class="collapse list-unstyled" id="treasurySubmenu">
+                        <li>
+                            <a href="revenues.html"><i class="bi bi-arrow-down"></i>
+                                الإيرادات</a>
+                        </li>
+                        <li>
+                            <a href="create-revenue.html"><i class="bi bi-plus"></i> إضافة إيراد</a>
+                        </li>
+                        <li>
+                            <a href="edit-revenue.html"><i class="bi bi-pencil"></i> تعديل إيراد</a>
+                        </li>
+                        <li>
+                            <a href="view-revenue.html"><i class="bi bi-eye"></i> معاينة إيراد</a>
+                        </li>
+                        <li>
+                            <a href="expenses.html"><i class="bi bi-arrow-up"></i> المصروفات</a>
+                        </li>
+                        <li>
+                            <a href="create-expense.html"><i class="bi bi-plus"></i> إضافة مصروف</a>
+                        </li>
+                        <li>
+                            <a href="edit-expense.html"><i class="bi bi-pencil"></i> تعديل مصروف</a>
+                        </li>
+                        <li>
+                            <a href="view-expense.html"><i class="bi bi-eye"></i> معاينة مصروف</a>
+                        </li>
+                        <li>
+                            <a href="current-balance.html"><i class="bi bi-wallet"></i> الرصيد
+                                الحالي</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
         <!-- Page Content -->
         <div id="content">
@@ -342,13 +265,15 @@
                                 <!-- Invoice Number, Date, Employee, Pricing Type -->
                                 <div class="col-md-3 mb-3">
                                     <label for="invoiceNumber" class="form-label">رقم الفاتورة</label>
-                                    <input type="text" class="form-control" id="invoiceNumber" name="invoice_number" value="1001" readonly>
+                                    <input type="text" class="form-control" id="invoiceNumber" name="invoice_number"
+                                        value="1001" readonly>
                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
                                     <!-- مثال: {{ form.invoice_number }} -->
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="invoiceDate" class="form-label">التاريخ</label>
-                                    <input type="date" class="form-control" id="invoiceDate" name="invoice_date" readonly>
+                                    <input type="date" class="form-control" id="invoiceDate" name="invoice_date"
+                                        readonly>
                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
                                     <!-- مثال: {{ form.invoice_date }} -->
                                 </div>
@@ -363,7 +288,8 @@
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="pricingType" class="form-label">نوع التسعير</label>
-                                    <select class="form-select" id="pricingType" name="pricing_type" onchange="updateProductPrices()">
+                                    <select class="form-select" id="pricingType" name="pricing_type"
+                                        onchange="updateProductPrices()">
                                         <option value="retail">قطاعي</option>
                                         <option value="wholesale">جملة</option>
                                     </select>
@@ -375,11 +301,13 @@
                                 <div class="col-md-12 mb-3">
                                     <label class="form-label">نوع العميل</label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="customer_type" id="cashCustomer" value="cash" checked onchange="toggleCustomerFields()">
+                                        <input class="form-check-input" type="radio" name="customer_type"
+                                            id="cashCustomer" value="cash" checked onchange="toggleCustomerFields()">
                                         <label class="form-check-label" for="cashCustomer">عميل نقدي</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="customer_type" id="creditCustomer" value="credit" onchange="toggleCustomerFields()">
+                                        <input class="form-check-input" type="radio" name="customer_type"
+                                            id="creditCustomer" value="credit" onchange="toggleCustomerFields()">
                                         <label class="form-check-label" for="creditCustomer">عميل آجل</label>
                                     </div>
                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
@@ -402,19 +330,22 @@
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="center" class="form-label">المركز</label>
-                                            <input type="text" class="form-control" id="center" name="center" placeholder="أدخل المركز">
+                                            <input type="text" class="form-control" id="center" name="center"
+                                                placeholder="أدخل المركز">
                                             <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Customer -->
                                             <!-- مثال: {{ form.center }} -->
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="village" class="form-label">القرية</label>
-                                            <input type="text" class="form-control" id="village" name="village" placeholder="أدخل القرية">
+                                            <input type="text" class="form-control" id="village" name="village"
+                                                placeholder="أدخل القرية">
                                             <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Customer -->
                                             <!-- مثال: {{ form.village }} -->
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="phone" class="form-label">رقم التليفون</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="أدخل رقم التليفون">
+                                            <input type="text" class="form-control" id="phone" name="phone"
+                                                placeholder="أدخل رقم التليفون">
                                             <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Customer -->
                                             <!-- مثال: {{ form.phone }} -->
                                         </div>
@@ -437,19 +368,23 @@
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="shippingDate" class="form-label">تاريخ الشحن</label>
-                                            <input type="date" class="form-control" id="shippingDate" name="shipping_date">
+                                            <input type="date" class="form-control" id="shippingDate"
+                                                name="shipping_date">
                                             <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
                                             <!-- مثال: {{ form.shipping_date }} -->
                                         </div>
                                         <div class="col-md-4 mb-3">
-                                            <label for="expectedDeliveryDate" class="form-label">تاريخ الاستلام المتوقع</label>
-                                            <input type="date" class="form-control" id="expectedDeliveryDate" name="expected_delivery_date">
+                                            <label for="expectedDeliveryDate" class="form-label">تاريخ الاستلام
+                                                المتوقع</label>
+                                            <input type="date" class="form-control" id="expectedDeliveryDate"
+                                                name="expected_delivery_date">
                                             <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
                                             <!-- مثال: {{ form.expected_delivery_date }} -->
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="shippingCompany" class="form-label">شركة الشحن</label>
-                                            <select class="form-select" id="shippingCompany" name="shipping_company" onchange="updateShippingDays()">
+                                            <select class="form-select" id="shippingCompany" name="shipping_company"
+                                                onchange="updateShippingDays()">
                                                 <option value="">اختر شركة الشحن</option>
                                                 <option value="egyptPost">البريد المصري</option>
                                                 <option value="aramex">أرامكس</option>
@@ -474,36 +409,41 @@
                                     <table class="table table-bordered" id="productsTable">
                                         <thead>
                                             <tr>
-                                                <th>باركود</th>
-                                                <th>كود</th>
-                                                <th>المنتج</th>
-                                                <th>المخزن</th>
-                                                <th>الكمية</th>
-                                                <th>السعر</th>
-                                                <th>الإجمالي</th>
-                                                <th>الإجراءات</th>
+                                                <th style="width: 10%;">باركود</th>
+                                                <th style="width: 10%;">كود</th>
+                                                <th style="width: 20%;">المنتج</th>
+                                                <th style="width: 20%;">المخزن</th>
+                                                <th style="width: 8%;">الكمية</th>
+                                                <th style="width: 8%;">السعر</th>
+                                                <th style="width: 8%;">الإجمالي</th>
+                                                <th style="width: 6%;">الإجراءات</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>
                                                     <div>
-                                                        <input type="text" class="form-control" name="barcode[]" value="123456">
-                                                        <button type="button" class="btn btn-link generate-btn mt-1" onclick="generateBarcode(this)">انشاء باركود</button>
+                                                        <input type="text" class="form-control" name="barcode[]"
+                                                            value="123456">
+                                                        <button type="button" class="btn btn-link generate-btn mt-1"
+                                                            onclick="generateBarcode(this)">انشاء باركود</button>
                                                     </div>
                                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Product -->
                                                     <!-- مثال: {{ formset.products.0.barcode }} -->
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <input type="text" class="form-control" name="code[]" value="P001">
-                                                        <button type="button" class="btn btn-link generate-btn mt-1" onclick="generateCode(this)">انشاء كود</button>
+                                                        <input type="text" class="form-control" name="code[]"
+                                                            value="P001">
+                                                        <button type="button" class="btn btn-link generate-btn mt-1"
+                                                            onclick="generateCode(this)">انشاء كود</button>
                                                     </div>
                                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Product -->
                                                     <!-- مثال: {{ formset.products.0.code }} -->
                                                 </td>
                                                 <td>
-                                                    <select class="form-select product-select" name="product[]" onchange="updateStockInfo(this)">
+                                                    <select class="form-select product-select" name="product[]"
+                                                        onchange="updateStockInfo(this)">
                                                         <option value="product1">منتج 1</option>
                                                         <option value="product2">منتج 2</option>
                                                     </select>
@@ -512,7 +452,8 @@
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <select class="form-select warehouse-select" name="warehouse[]" onchange="updateStockInfo(this)">
+                                                        <select class="form-select warehouse-select" name="warehouse[]"
+                                                            onchange="updateStockInfo(this)">
                                                             <option value="warehouse1">مخزن 1 - القاهرة</option>
                                                             <option value="warehouse2">مخزن 2 - الجيزة</option>
                                                         </select>
@@ -524,56 +465,68 @@
                                                     <!-- مثال: {{ formset.products.0.warehouse }} -->
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control quantity" name="quantity[]" value="1" min="1" onchange="updateRowTotal(this)">
+                                                    <input type="number" class="form-control quantity" name="quantity[]"
+                                                        value="1" min="1" onchange="updateRowTotal(this)">
                                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل InvoiceItem -->
                                                     <!-- مثال: {{ formset.products.0.quantity }} -->
                                                 </td>
                                                 <td>
                                                     <div>
-                                                        <input type="number" class="form-control price" name="price[]" value="100" readonly>
-                                                        <a href="#" class="change-price-btn d-block mt-1" onclick="changePrice(this)">تغيير السعر</a>
+                                                        <input type="number" class="form-control price" name="price[]"
+                                                            value="100" readonly>
+                                                        <a href="#" class="change-price-btn d-block mt-1"
+                                                            onclick="changePrice(this)">تغيير السعر</a>
                                                     </div>
                                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل InvoiceItem -->
                                                     <!-- مثال: {{ formset.products.0.price }} -->
                                                 </td>
                                                 <td>
-                                                    <input type="number" class="form-control total" name="total[]" value="100" readonly>
+                                                    <input type="number" class="form-control total" name="total[]"
+                                                        value="100" readonly>
                                                     <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل InvoiceItem -->
                                                     <!-- مثال: {{ formset.products.0.total }} -->
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger remove-row"><i class="bi bi-trash"></i></button>
+                                                    <button type="button" class="btn btn-danger remove-row"><i
+                                                            class="bi bi-trash"></i></button>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <button type="button" class="btn btn-primary mt-2" id="addProductRow">إضافة منتج</button>
+                                    <button type="button" class="btn btn-primary mt-2" id="addProductRow">إضافة
+                                        منتج</button>
                                     <!-- ملاحظة لـ Django: الجدول ده هيتربط بـ Django formset -->
                                     <!-- مثال: {% for form in formset.products %} ... {% endfor %} -->
                                 </div>
 
                                 <!-- Discounts -->
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-3 mb-3">
                                     <label for="discountPercentage" class="form-label">الخصم (نسبة %)</label>
-                                    <input type="number" class="form-control" id="discountPercentage" name="discount_percentage" placeholder="أدخل نسبة الخصم" onchange="calculateTotal()">
-                                    <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
-                                    <!-- مثال: {{ form.discount_percentage }} -->
+                                    <input type="number" class="form-control" id="discountPercentage"
+                                        name="discount_percentage" placeholder="أدخل نسبة الخصم"
+                                        onchange="calculateTotal()">
                                 </div>
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-3 mb-3">
+                                    <label for="increasePercentage" class="form-label">الزيادة (نسبة %)</label>
+                                    <input type="number" class="form-control" id="increasePercentage"
+                                        name="increase_percentage" placeholder="أدخل نسبة الزيادة"
+                                        onchange="calculateTotal()">
+                                </div>
+                                <div class="col-md-3 mb-3">
                                     <label for="discountAmount" class="form-label">الخصم (مبلغ محدد)</label>
-                                    <input type="number" class="form-control" id="discountAmount" name="discount_amount" placeholder="أدخل مبلغ الخصم" onchange="calculateTotal()">
-                                    <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
-                                    <!-- مثال: {{ form.discount_amount }} -->
+                                    <input type="number" class="form-control" id="discountAmount" name="discount_amount"
+                                        placeholder="أدخل مبلغ الخصم" onchange="calculateTotal()">
                                 </div>
-
-                                <!-- Total -->
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-3 mb-3">
                                     <label for="totalAmount" class="form-label">الإجمالي</label>
-                                    <input type="number" class="form-control" id="totalAmount" name="total_amount" readonly>
-                                    <!-- ملاحظة لـ Django: الحقل ده ممكن يتربط مع موديل Invoice -->
-                                    <!-- مثال: {{ form.total_amount }} -->
+                                    <input type="number" class="form-control" id="totalAmount" name="total_amount"
+                                        readonly>
                                 </div>
-                            </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="notes" class="form-label">الملاحظات</label>
+                                    <textarea class="form-control" id="notes" name="notes" rows="3"
+                                        placeholder="أدخل ملاحظاتك هنا"></textarea>
+                                </div>
                         </form>
                     </div>
                 </div>
@@ -582,7 +535,8 @@
     </div>
 
     <!-- Modal for Price Change Password -->
-    <div class="modal fade" id="priceChangeModal" tabindex="-1" aria-labelledby="priceChangeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="priceChangeModal" tabindex="-1" aria-labelledby="priceChangeModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -614,251 +568,256 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        // تعيين تاريخ اليوم تلقائيًا
-        document.getElementById('invoiceDate').value = new Date().toISOString().split('T')[0];
+    // تعيين تاريخ اليوم تلقائيًا
+    document.getElementById('invoiceDate').value = new Date().toISOString().split('T')[0];
 
-        // تفعيل البحث في حقل العميل
-        $(document).ready(function () {
-            $('#customer').select2({
-                placeholder: "ابحث عن عميل",
-                allowClear: true
-            });
+    // تفعيل البحث في حقل العميل
+    $(document).ready(function () {
+        $('#customer').select2({
+            placeholder: "ابحث عن عميل",
+            allowClear: true
         });
+    });
 
-        // إظهار/إخفاء حقول العميل بناءً على نوع العميل
-        function toggleCustomerFields() {
-            const customerType = document.querySelector('input[name="customer_type"]:checked').value;
-            const customerDetails = document.getElementById('customerDetails');
-            const creditCustomerDetails = document.getElementById('creditCustomerDetails');
-            customerDetails.style.display = customerType === 'cash' ? 'block' : 'none';
-            creditCustomerDetails.style.display = customerType === 'credit' ? 'block' : 'none';
-            localStorage.setItem('customerType', customerType);
-        }
+    // إظهار/إخفاء حقول العميل بناءً على نوع العميل
+    function toggleCustomerFields() {
+        const customerType = document.querySelector('input[name="customer_type"]:checked').value;
+        const customerDetails = document.getElementById('customerDetails');
+        const creditCustomerDetails = document.getElementById('creditCustomerDetails');
+        customerDetails.style.display = customerType === 'cash' ? 'block' : 'none';
+        creditCustomerDetails.style.display = customerType === 'credit' ? 'block' : 'none';
+        localStorage.setItem('customerType', customerType);
+    }
 
-        // توليد باركود عشوائي
-        function generateBarcode(button) {
-            const row = button.closest('tr');
-            const barcodeInput = row.querySelector('input[name="barcode[]"]');
-            const randomBarcode = Math.floor(100000 + Math.random() * 900000); // توليد رقم عشوائي من 6 أرقام
-            barcodeInput.value = randomBarcode;
-        }
+    // توليد باركود عشوائي
+    function generateBarcode(button) {
+        const row = button.closest('tr');
+        const barcodeInput = row.querySelector('input[name="barcode[]"]');
+        const randomBarcode = Math.floor(100000 + Math.random() * 900000); // توليد رقم عشوائي من 6 أرقام
+        barcodeInput.value = randomBarcode;
+    }
 
-        // توليد كود عشوائي
-        function generateCode(button) {
-            const row = button.closest('tr');
-            const codeInput = row.querySelector('input[name="code[]"]');
-            const randomCode = 'P' + Math.floor(100 + Math.random() * 900); // توليد كود على شكل PXXX
-            codeInput.value = randomCode;
-        }
+    // توليد كود عشوائي
+    function generateCode(button) {
+        const row = button.closest('tr');
+        const codeInput = row.querySelector('input[name="code[]"]');
+        const randomCode = 'P' + Math.floor(100 + Math.random() * 900); // توليد كود على شكل PXXX
+        codeInput.value = randomCode;
+    }
 
-        // إضافة منتج جديد
-        document.getElementById('addProductRow').addEventListener('click', function () {
-            const row = `
-                <tr>
-                    <td>
-                        <div>
-                            <input type="text" class="form-control" name="barcode[]" value="123456">
-                            <button type="button" class="btn btn-link generate-btn mt-1" onclick="generateBarcode(this)">انشاء باركود</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <input type="text" class="form-control" name="code[]" value="P001">
-                            <button type="button" class="btn btn-link generate-btn mt-1" onclick="generateCode(this)">انشاء كود</button>
-                        </div>
-                    </td>
-                    <td>
-                        <select class="form-select product-select" name="product[]" onchange="updateStockInfo(this)">
-                            <option value="product1">منتج 1</option>
-                            <option value="product2">منتج 2</option>
+    // إضافة منتج جديد
+    document.getElementById('addProductRow').addEventListener('click', function () {
+        const row = `
+            <tr>
+                <td>
+                    <div>
+                        <input type="text" class="form-control form-control-sm" name="barcode[]" value="123456">
+                        <button type="button" class="btn btn-link generate-btn mt-1" onclick="generateBarcode(this)">انشاء باركود</button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="text" class="form-control form-control-sm" name="code[]" value="P001">
+                        <button type="button" class="btn btn-link generate-btn mt-1" onclick="generateCode(this)">انشاء كود</button>
+                    </div>
+                </td>
+                <td>
+                    <select class="form-select product-select" name="product[]" onchange="updateStockInfo(this)">
+                        <option value="product1">منتج 1</option>
+                        <option value="product2">منتج 2</option>
+                    </select>
+                </td>
+                <td>
+                    <div>
+                        <select class="form-select warehouse-select" name="warehouse[]" onchange="updateStockInfo(this)">
+                            <option value="warehouse1">مخزن 1 - القاهرة</option>
+                            <option value="warehouse2">مخزن 2 - الجيزة</option>
                         </select>
-                    </td>
-                    <td>
-                        <div>
-                            <select class="form-select warehouse-select" name="warehouse[]" onchange="updateStockInfo(this)">
-                                <option value="warehouse1">مخزن 1 - القاهرة</option>
-                                <option value="warehouse2">مخزن 2 - الجيزة</option>
-                            </select>
-                            <small class="stock-info mt-1 d-block">
-                                متاح: 50 | حر: 40 | محجوز: 10
-                            </small>
-                        </div>
-                    </td>
-                    <td><input type="number" class="form-control quantity" name="quantity[]" value="1" min="1" onchange="updateRowTotal(this)"></td>
-                    <td>
-                        <div>
-                            <input type="number" class="form-control price" name="price[]" value="100" readonly>
-                            <a href="#" class="change-price-btn d-block mt-1" onclick="changePrice(this)">تغيير السعر</a>
-                        </div>
-                    </td>
-                    <td><input type="number" class="form-control total" name="total[]" value="100" readonly></td>
-                    <td><button type="button" class="btn btn-danger remove-row"><i class="bi bi-trash"></i></button></td>
-                </tr>`;
-            document.querySelector('#productsTable tbody').insertAdjacentHTML('beforeend', row);
-            updateProductPrices();
-        });
+                        <small class="stock-info mt-1 d-block">
+                            متاح: 50 | حر: 40 | محجوز: 10
+                        </small>
+                    </div>
+                </td>
+                <td><input type="number" class="form-control form-control-sm quantity" name="quantity[]" value="1" min="1" onchange="updateRowTotal(this)"></td>
+                <td>
+                    <div>
+                        <input type="number" class="form-control form-control-sm price" name="price[]" value="100" readonly>
+                        <a href="#" class="change-price-btn d-block mt-1" onclick="changePrice(this)">تغيير السعر</a>
+                    </div>
+                </td>
+                <td><input type="number" class="form-control form-control-sm total" name="total[]" value="100" readonly></td>
+                <td><button type="button" class="btn btn-danger remove-row"><i class="bi bi-trash"></i></button></td>
+            </tr>`;
+        const tbody = document.querySelector('#productsTable tbody');
+        tbody.insertAdjacentHTML('beforeend', row);
 
-        // حذف صف منتج
-        document.querySelector('#productsTable').addEventListener('click', function (e) {
-            if (e.target.closest('.remove-row')) {
-                e.target.closest('tr').remove();
-                calculateTotal();
+        // تحديث بيانات المنتج الجديد والإجمالي
+        const newRow = tbody.lastElementChild;
+        const productSelect = newRow.querySelector('.product-select');
+        const warehouseSelect = newRow.querySelector('.warehouse-select');
+        updateStockInfo(productSelect); // تحديث السعر والمخزون بناءً على المنتج الافتراضي
+        updateStockInfo(warehouseSelect); // تحديث معلومات المخزن
+        updateRowTotal(newRow.querySelector('.quantity')); // تحديث إجمالي الصف الجديد
+        calculateTotal(); // تحديث الإجمالي الكلي
+    });
+
+    // حذف صف منتج
+    document.querySelector('#productsTable').addEventListener('click', function (e) {
+        if (e.target.closest('.remove-row')) {
+            e.target.closest('tr').remove();
+            calculateTotal();
+        }
+    });
+
+    // تحديث معلومات الرصيد بناءً على المنتج والمخزن
+    function updateStockInfo(selectElement) {
+        const row = selectElement.closest('tr');
+        const product = row.querySelector('.product-select').value;
+        const warehouse = row.querySelector('.warehouse-select').value;
+        const stockInfo = row.querySelector('.stock-info');
+        const priceInput = row.querySelector('.price');
+
+        // بيانات الرصيد (مثال - يمكن ربطها بقاعدة بيانات لاحقًا)
+        const stockData = {
+            product1: {
+                warehouse1: { available: 50, free: 40, reserved: 10 },
+                warehouse2: { available: 30, free: 20, reserved: 10 }
+            },
+            product2: {
+                warehouse1: { available: 70, free: 60, reserved: 10 },
+                warehouse2: { available: 40, free: 30, reserved: 10 }
             }
-        });
+        };
 
-        // تحديث معلومات الرصيد بناءً على المنتج والمخزن
-        function updateStockInfo(selectElement) {
-            const row = selectElement.closest('tr');
+        // بيانات الأسعار بناءً على المنتج ونوع التسعير
+        const pricingType = document.getElementById('pricingType').value;
+        const priceData = {
+            product1: { retail: 100, wholesale: 80 },
+            product2: { retail: 150, wholesale: 120 }
+        };
+
+        // تحديث معلومات الرصيد
+        const stock = stockData[product][warehouse];
+        stockInfo.textContent = `متاح: ${stock.available} | حر: ${stock.free} | محجوز: ${stock.reserved}`;
+
+        // تحديث السعر بناءً على المنتج ونوع التسعير
+        const price = priceData[product][pricingType];
+        priceInput.value = price;
+
+        // تحديث إجمالي الصف (السعر × الكمية)
+        updateRowTotal(priceInput); // تحديث الإجمالي بعد تغيير السعر
+    }
+
+    // تحديث إجمالي الصف
+    function updateRowTotal(element) {
+        const row = element.closest('tr');
+        const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
+        const price = parseFloat(row.querySelector('.price').value) || 0;
+        const totalInput = row.querySelector('.total');
+        totalInput.value = (quantity * price).toFixed(2);
+        calculateTotal(); // تحديث الإجمالي الكلي بعد كل تغيير
+    }
+
+    // تحديث الأسعار بناءً على نوع التسعير
+    function updateProductPrices() {
+        const pricingType = document.getElementById('pricingType').value;
+        const rows = document.querySelectorAll('#productsTable tbody tr');
+        const priceData = {
+            product1: { retail: 100, wholesale: 80 },
+            product2: { retail: 150, wholesale: 120 }
+        };
+
+        rows.forEach(row => {
             const product = row.querySelector('.product-select').value;
-            const warehouse = row.querySelector('.warehouse-select').value;
-            const stockInfo = row.querySelector('.stock-info');
             const priceInput = row.querySelector('.price');
-
-            // بيانات الرصيد (مثال - يمكن ربطها بقاعدة بيانات لاحقًا)
-            const stockData = {
-                product1: {
-                    warehouse1: { available: 50, free: 40, reserved: 10 },
-                    warehouse2: { available: 30, free: 20, reserved: 10 }
-                },
-                product2: {
-                    warehouse1: { available: 70, free: 60, reserved: 10 },
-                    warehouse2: { available: 40, free: 30, reserved: 10 }
-                }
-            };
-
-            // بيانات الأسعار بناءً على المنتج ونوع التسعير
-            const pricingType = document.getElementById('pricingType').value;
-            const priceData = {
-                product1: { retail: 100, wholesale: 80 },
-                product2: { retail: 150, wholesale: 120 }
-            };
-
-            // تحديث معلومات الرصيد
-            const stock = stockData[product][warehouse];
-            stockInfo.textContent = `متاح: ${stock.available} | حر: ${stock.free} | محجوز: ${stock.reserved}`;
+            const quantityInput = row.querySelector('.quantity');
+            const totalInput = row.querySelector('.total');
 
             // تحديث السعر بناءً على المنتج ونوع التسعير
             const price = priceData[product][pricingType];
             priceInput.value = price;
 
-            // تحديث إجمالي الصف (السعر × الكمية)
-            updateRowTotal(priceInput);
-
-            // ملاحظة لـ Django: ممكن تجيب البيانات دي من الباك إند
-            // مثال: يمكنك استخدام API أو تمرير البيانات عبر context
-        }
-
-        // تحديث إجمالي الصف
-        function updateRowTotal(element) {
-            const row = element.closest('tr');
-            const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
-            const price = parseFloat(row.querySelector('.price').value) || 0;
-            const totalInput = row.querySelector('.total');
-            totalInput.value = (quantity * price).toFixed(2);
-            calculateTotal();
-        }
-
-        // تحديث الأسعار بناءً على نوع التسعير
-        function updateProductPrices() {
-            const pricingType = document.getElementById('pricingType').value;
-            const rows = document.querySelectorAll('#productsTable tbody tr');
-            const priceData = {
-                product1: { retail: 100, wholesale: 80 },
-                product2: { retail: 150, wholesale: 120 }
-            };
-
-            rows.forEach(row => {
-                const product = row.querySelector('.product-select').value;
-                const priceInput = row.querySelector('.price');
-                const quantityInput = row.querySelector('.quantity');
-                const totalInput = row.querySelector('.total');
-
-                // تحديث السعر بناءً على المنتج ونوع التسعير
-                const price = priceData[product][pricingType];
-                priceInput.value = price;
-
-                // تحديث إجمالي الصف
-                totalInput.value = (price * (parseFloat(quantityInput.value) || 0)).toFixed(2);
-            });
-            calculateTotal();
-            // ملاحظة لـ Django: ممكن تجيب الأسعار ديناميكيًا من الباك إند
-        }
-
-        // حساب الإجمالي
-        function calculateTotal() {
-            let total = 0;
-            document.querySelectorAll('#productsTable .total').forEach(totalInput => {
-                total += parseFloat(totalInput.value) || 0;
-            });
-
-            // تطبيق الخصم
-            const discountPercentage = parseFloat(document.getElementById('discountPercentage').value) || 0;
-            const discountAmount = parseFloat(document.getElementById('discountAmount').value) || 0;
-            const percentageDiscount = (total * discountPercentage) / 100;
-            total = total - percentageDiscount - discountAmount;
-
-            document.getElementById('totalAmount').value = total.toFixed(2);
-        }
-
-        // تغيير السعر بصلاحيات
-        let currentPriceInput;
-        function changePrice(link) {
-            currentPriceInput = link.closest('td').querySelector('.price');
-            new bootstrap.Modal(document.getElementById('priceChangeModal')).show();
-        }
-
-        function applyNewPrice() {
-            const password = document.getElementById('priceChangePassword').value;
-            const newPrice = parseFloat(document.getElementById('newPrice').value);
-
-            // مثال على كلمة السر (يمكن تعديلها)
-            if (password === 'admin123') {
-                currentPriceInput.value = newPrice;
-                currentPriceInput.readOnly = true;
-                updateRowTotal(currentPriceInput);
-                bootstrap.Modal.getInstance(document.getElementById('priceChangeModal')).hide();
-            } else {
-                Swal.fire('خطأ', 'كلمة السر غير صحيحة', 'error');
-            }
-            // ملاحظة لـ Django: ممكن تعمل API للتحقق من كلمة السر
-        }
-
-        // تحديث عدد أيام الشحن
-        function updateShippingDays() {
-            const governorate = document.getElementById('governorate').value;
-            const shippingCompany = document.getElementById('shippingCompany').value;
-            const shippingDaysInfo = document.getElementById('shippingDaysInfo');
-
-            if (!governorate || !shippingCompany) {
-                shippingDaysInfo.innerHTML = '<p>اختر المحافظة وشركة الشحن لعرض عدد الأيام</p>';
-                return;
-            }
-
-            const shippingData = {
-                cairo: { egyptPost: 5, aramex: 4, dhl: 3 },
-                giza: { egyptPost: 4, aramex: 3, dhl: 2 },
-                alexandria: { egyptPost: 6, aramex: 5, dhl: 4 }
-            };
-
-            const days = shippingData[governorate][shippingCompany];
-            shippingDaysInfo.innerHTML = `
-                <p>عدد أيام الشحن إلى ${governorate} مع ${shippingCompany}: ${days} أيام</p>
-                <p>البريد المصري: ${shippingData[governorate].egyptPost} أيام</p>
-                <p>أرامكس: ${shippingData[governorate].aramex} أيام</p>
-                <p>DHL: ${shippingData[governorate].dhl} أيام</p>
-            `;
-            // ملاحظة لـ Django: ممكن تجيب البيانات دي من الباك إند
-        }
-
-        // الانتقال إلى صفحة طرق الدفع
-        document.getElementById('nextButton').addEventListener('click', function () {
-            const totalAmount = document.getElementById('totalAmount').value;
-            localStorage.setItem('invoiceTotal', totalAmount);
-            window.location.href = 'payment-methods.html';
-            // ملاحظة لـ Django: ممكن تعمل redirect لصفحة طرق الدفع
-            // مثال: window.location.href = "{% url 'payment_methods' %}";
+            // تحديث إجمالي الصف
+            totalInput.value = (price * (parseFloat(quantityInput.value) || 0)).toFixed(2);
         });
-    </script>
+        calculateTotal();
+    }
+
+    // حساب الإجمالي
+    function calculateTotal() {
+        let total = 0;
+        document.querySelectorAll('#productsTable .total').forEach(totalInput => {
+            total += parseFloat(totalInput.value) || 0;
+        });
+
+        // تطبيق الخصم والزيادة
+        const discountPercentage = parseFloat(document.getElementById('discountPercentage').value) || 0;
+        const discountAmount = parseFloat(document.getElementById('discountAmount').value) || 0;
+        const increasePercentage = parseFloat(document.getElementById('increasePercentage').value) || 0;
+
+        const percentageDiscount = (total * discountPercentage) / 100;
+        const percentageIncrease = (total * increasePercentage) / 100;
+        total = total - percentageDiscount - discountAmount + percentageIncrease;
+
+        document.getElementById('totalAmount').value = total.toFixed(2);
+    }
+
+    // تغيير السعر بصلاحيات
+    let currentPriceInput;
+
+    function changePrice(link) {
+        currentPriceInput = link.closest('td').querySelector('.price');
+        new bootstrap.Modal(document.getElementById('priceChangeModal')).show();
+    }
+
+    function applyNewPrice() {
+        const password = document.getElementById('priceChangePassword').value;
+        const newPrice = parseFloat(document.getElementById('newPrice').value);
+
+        // مثال على كلمة السر (يمكن تعديلها)
+        if (password === 'admin123') {
+            currentPriceInput.value = newPrice;
+            currentPriceInput.readOnly = true;
+            updateRowTotal(currentPriceInput);
+            bootstrap.Modal.getInstance(document.getElementById('priceChangeModal')).hide();
+        } else {
+            Swal.fire('خطأ', 'كلمة السر غير صحيحة', 'error');
+        }
+    }
+
+    // تحديث عدد أيام الشحن
+    function updateShippingDays() {
+        const governorate = document.getElementById('governorate').value;
+        const shippingCompany = document.getElementById('shippingCompany').value;
+        const shippingDaysInfo = document.getElementById('shippingDaysInfo');
+
+        if (!governorate || !shippingCompany) {
+            shippingDaysInfo.innerHTML = '<p>اختر المحافظة وشركة الشحن لعرض عدد الأيام</p>';
+            return;
+        }
+
+        const shippingData = {
+            cairo: { egyptPost: 5, aramex: 4, dhl: 3 },
+            giza: { egyptPost: 4, aramex: 3, dhl: 2 },
+            alexandria: { egyptPost: 6, aramex: 5, dhl: 4 }
+        };
+
+        const days = shippingData[governorate][shippingCompany];
+        shippingDaysInfo.innerHTML = `
+            <p>عدد أيام الشحن إلى ${governorate} مع ${shippingCompany}: ${days} أيام</p>
+            <p>البريد المصري: ${shippingData[governorate].egyptPost} أيام</p>
+            <p>أرامكس: ${shippingData[governorate].aramex} أيام</p>
+            <p>DHL: ${shippingData[governorate].dhl} أيام</p>
+        `;
+    }
+
+    // الانتقال إلى صفحة طرق الدفع
+    document.getElementById('nextButton').addEventListener('click', function () {
+        const totalAmount = document.getElementById('totalAmount').value;
+        localStorage.setItem('invoiceTotal', totalAmount);
+        window.location.href = 'payment-methods.html';
+    });
+</script>
 </body>
 
 </html>
