@@ -49,8 +49,7 @@
                     <ul class="collapse list-unstyled" id="customersSubmenu">
                         <li><a href="customers.html"><i class="bi bi-person-lines-fill"></i> إدارة العملاء</a></li>
                         <li><a href="crm.html"><i class="bi bi-chat-dots"></i> إدارة علاقات العملاء</a></li>
-                        <li><a href="customer-followup.html"><i class="bi bi-calendar-check"></i> متابعة العملاء</a>
-                        </li>
+                        <li><a href="customer-followup.html"><i class="bi bi-calendar-check"></i> متابعة العملاء</a></li>
                         <li><a href="customer-reports.html"><i class="bi bi-bar-chart"></i> تقارير العملاء</a></li>
                         <li><a href="customer-notifications.html"><i class="bi bi-bell"></i> إشعارات العملاء</a></li>
                     </ul>
@@ -64,7 +63,7 @@
                         <li><a href="track-products.html"><i class="bi bi-boxes"></i>قائمة الاصناف</a></li>
                         <li><a href="#"><i class="bi bi-cart-plus"></i>تعديل الصنف</a></li>
                         <li><a href="#"><i class="bi bi-receipt"></i>وحدات القياس</a></li>
-                        <li><a href="" #><i class="bi bi-cash"></i>وحدت الاقسام</a></li>
+                        <li><a href=""#><i class="bi bi-cash"></i>وحدت الاقسام</a></li>
                     </ul>
                 </li>
                 <li>
@@ -85,8 +84,7 @@
                     </a>
                     <ul class="collapse list-unstyled" id="inventorySubmenu">
                         <li><a href="inventory-check.html"><i class="bi bi-list-check"></i> إدارة الجرد</a></li>
-                        <li><a href="inventory-movement.html"><i class="bi bi-arrow-left-right"></i> حركة المخزون</a>
-                        </li>
+                        <li><a href="inventory-movement.html"><i class="bi bi-arrow-left-right"></i> حركة المخزون</a></li>
                         <li><a href="warehouses.html"><i class="bi bi-house"></i> إدارة المستودعات</a></li>
                         <li><a href="inventory-settings.html"><i class="bi bi-gear"></i> إعدادات المخازن</a></li>
                         <li><a href="inventory-reports.html"><i class="bi bi-bar-chart"></i> تقارير المخازن</a></li>
@@ -154,23 +152,20 @@
                                 <form>
                                     <div class="mb-3">
                                         <label for="itemName" class="form-label">اسم الصنف</label>
-                                        <input type="text" class="form-control" id="itemName"
-                                            placeholder="أدخل اسم الصنف" />
+                                        <input type="text" class="form-control" id="itemName" placeholder="أدخل اسم الصنف" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="barcode" class="form-label">الباركود</label>
                                         <div class="input-group">
                                             <input type="number" class="form-control" id="barcode" value="123456" />
-                                            <button type="button" class="btn btn-link" onclick="generateBarcode()">إنشاء
-                                                باركود</button>
+                                            <button type="button" class="btn btn-link" onclick="generateBarcode()">إنشاء باركود</button>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="itemCode" class="form-label">كود الصنف</label>
                                         <div class="input-group">
                                             <input type="number" class="form-control" id="itemCode" value="1001" />
-                                            <button type="button" class="btn btn-link" onclick="generateCode()">إنشاء
-                                                كود</button>
+                                            <button type="button" class="btn btn-link" onclick="generateCode()">إنشاء كود</button>
                                         </div>
                                     </div>
                                     <div class="mb-3">
@@ -191,8 +186,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="description" class="form-label">الوصف</label>
-                                        <textarea class="form-control" id="description" rows="3"
-                                            placeholder="أدخل وصف الصنف"></textarea>
+                                        <textarea class="form-control" id="description" rows="3" placeholder="أدخل وصف الصنف"></textarea>
                                     </div>
                                 </form>
                             </div>
@@ -206,53 +200,27 @@
                                 <form>
                                     <div class="mb-3">
                                         <label for="costPrice" class="form-label">سعر التكلفة</label>
-                                        <input type="number" class="form-control" id="costPrice"
-                                            placeholder="أدخل سعر التكلفة" value="0" />
+                                        <input type="number" class="form-control" id="costPrice" placeholder="أدخل سعر التكلفة" value="0" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="wholesalePrice" class="form-label">سعر الجملة</label>
-                                        <input type="number" class="form-control" id="wholesalePrice"
-                                            placeholder="أدخل سعر الجملة" value="0" />
+                                        <input type="number" class="form-control" id="wholesalePrice" placeholder="أدخل سعر الجملة" value="0" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="bulkWholesalePrice" class="form-label">سعر جملة الجملة</label>
-                                        <input type="number" class="form-control" id="bulkWholesalePrice"
-                                            placeholder="أدخل سعر جملة الجملة" value="0" />
+                                        <input type="number" class="form-control" id="bulkWholesalePrice" placeholder="أدخل سعر جملة الجملة" value="0" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="retailPrice" class="form-label">سعر القطاعي</label>
-                                        <input type="number" class="form-control" id="retailPrice"
-                                            placeholder="أدخل سعر القطاعي" value="0" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="discountType" class="form-label">نوع الخصم</label>
-                                        <select class="form-select" id="discountType">
-                                            <option value="none" selected>بدون خصم</option>
-                                            <option value="percentage">خصم نسبي (%)</option>
-                                            <option value="fixed">خصم قطعي (ثابت)</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3" id="percentageDiscountField" style="display: none;">
-                                        <label for="percentageDiscount" class="form-label">نسبة الخصم (%)</label>
-                                        <input type="number" class="form-control" id="percentageDiscount"
-                                            placeholder="أدخل نسبة الخصم" value="0" min="0" max="100" />
-                                    </div>
-
-                                    <div class="mb-3" id="fixedDiscountField" style="display: none;">
-                                        <label for="fixedDiscount" class="form-label">قيمة الخصم الثابت</label>
-                                        <input type="number" class="form-control" id="fixedDiscount"
-                                            placeholder="أدخل قيمة الخصم" value="0" min="0" />
+                                        <input type="number" class="form-control" id="retailPrice" placeholder="أدخل سعر القطاعي" value="0" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="stockQuantity" class="form-label">الكمية في المخزون</label>
-                                        <input type="number" class="form-control" id="stockQuantity"
-                                            placeholder="أدخل الكمية" value="0" />
+                                        <input type="number" class="form-control" id="stockQuantity" placeholder="أدخل الكمية" value="0" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="minimumStock" class="form-label">الحد الأدنى للمخزون</label>
-                                        <input type="number" class="form-control" id="minimumStock"
-                                            placeholder="أدخل الحد الأدنى" value="0" />
+                                        <input type="number" class="form-control" id="minimumStock" placeholder="أدخل الحد الأدنى" value="0" />
                                     </div>
                                     <div class="mb-3">
                                         <label for="expiryDate" class="form-label">تاريخ الصلاحية (اختياري)</label>
@@ -296,50 +264,6 @@
                 window.location.href = "products.html"; // الرجوع لصفحة الأصناف بعد الحفظ
             });
         });
-
-
-
-        // إظهار/إخفاء حقول الخصم حسب النوع المختار
-document.getElementById('discountType').addEventListener('change', function() {
-    const discountType = this.value;
-    const percentageField = document.getElementById('percentageDiscountField');
-    const fixedField = document.getElementById('fixedDiscountField');
-    
-    // إعادة تعيين جميع حقول الخصم
-    percentageField.style.display = 'none';
-    fixedField.style.display = 'none';
-    
-    // إظهار الحقل المناسب حسب نوع الخصم المختار
-    if (discountType === 'percentage') {
-        percentageField.style.display = 'block';
-    } else if (discountType === 'fixed') {
-        fixedField.style.display = 'block';
-    }
-});
-
-// تعديل وظيفة حفظ الصنف لتشمل معلومات الخصم
-document.getElementById("saveProductButton").addEventListener("click", function () {
-    // الحصول على بيانات الخصم
-    const discountType = document.getElementById('discountType').value;
-    let discount = 0;
-    
-    if (discountType === 'percentage') {
-        discount = document.getElementById('percentageDiscount').value;
-    } else if (discountType === 'fixed') {
-        discount = document.getElementById('fixedDiscount').value;
-    }
-    
-    // هنا يمكنك إضافة الشيفرة اللازمة لحفظ معلومات الخصم مع بيانات الصنف الأخرى
-    
-    Swal.fire({
-        title: "حفظ الصنف",
-        text: "تم حفظ الصنف بنجاح!",
-        icon: "success",
-        confirmButtonText: "موافق",
-    }).then(() => {
-        window.location.href = "products.html"; // الرجوع لصفحة الأصناف بعد الحفظ
-    });
-});
     </script>
 </body>
 
