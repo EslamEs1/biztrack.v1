@@ -195,7 +195,7 @@
                     <!-- Credit Customer Fields -->
                     <div id="creditCustomerFields" style="display: none;">
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="registeredCustomer" class="form-label">العميل</label>
                                 <select class="form-select" id="registeredCustomer">
                                     <option value="" selected>اختر العميل...</option>
@@ -205,32 +205,30 @@
                                     <option value="4">محلات السعادة</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="shippingDetails" class="form-label">تفاصيل الشحن</label>
-                                <input type="text" class="form-control" id="shippingDetails" placeholder="عنوان الشحن أو ملاحظات التوصيل">
+                            <div class="col-md-4 mb-3">
+                                <label for="shippingCompany" class="form-label">شركة الشحن</label>
+                                <select class="form-select" id="shippingCompany">
+                                    <option value="" selected>اختر شركة الشحن...</option>
+                                    <option value="aramex">أرامكس</option>
+                                    <option value="fedex">فيديكس</option>
+                                    <option value="dhl">دي إتش إل</option>
+                                    <option value="bosta">بوسطة</option>
+                                    <option value="mylerz">مايلرز</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="shippingAddress" class="form-label">عنوان الشحن</label>
+                                <input type="text" class="form-control" id="shippingAddress" placeholder="عنوان الشحن">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">رصيد العميل</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value="5,200.00" readonly>
-                                    <span class="input-group-text">ج.م</span>
-                                </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="shippingDate" class="form-label">تاريخ الشحن</label>
+                                <input type="date" class="form-control" id="shippingDate">
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">الحد الائتماني</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value="10,000.00" readonly>
-                                    <span class="input-group-text">ج.م</span>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">المتاح</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value="4,800.00" readonly>
-                                    <span class="input-group-text">ج.م</span>
-                                </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="expectedDeliveryDate" class="form-label">تاريخ الاستلام المتوقع</label>
+                                <input type="date" class="form-control" id="expectedDeliveryDate">
                             </div>
                         </div>
                     </div>
@@ -294,7 +292,7 @@
                             <textarea class="form-control" id="invoiceNotes" rows="3"></textarea>
                         </div>
                         <div class="col-md-6 d-flex align-items-end justify-content-end">
-                            <button type="button" class="btn btn-outline-secondary me-2">
+                            <button type="button" class="btn btn-outline-secondary me-2" id="previewInvoiceBtn" onclick="window.location.href='invoice-preview.html'">
                                 <i class="bi bi-eye"></i> معاينة الفاتورة
                             </button>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">

@@ -426,6 +426,12 @@ function updateInvoiceTotal() {
         // Trigger the calculation of remaining amount
         calculateRemainingAmount();
     }
+    
+    // Update payment total amount in the modal header
+    const paymentTotalAmount = document.getElementById('paymentTotalAmount');
+    if (paymentTotalAmount) {
+        paymentTotalAmount.textContent = invoiceTotal.toFixed(2) + ' ج.م';
+    }
 }
 
 // Function to calculate remaining amount in payment form

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizTrack - معاينة فاتورة المبيعات</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar no-print">
+        <div class="logo">
+            <h3>BizTrack</h3>
+        </div>
+        <div class="menu">
+            <a href="../index.html" class="menu-item">
+                <i class="bi bi-speedometer2"></i>
+                <span>لوحة التحكم</span>
+            </a>
+            <div class="menu-header">المبيعات</div>
+            <a href="invoice.html" class="menu-item">
+                <i class="bi bi-receipt"></i>
+                <span>فاتورة مبيعات</span>
+            </a>
+            <a href="invoices.html" class="menu-item">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>إدارة الفواتير</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-people"></i>
+                <span>العملاء</span>
+            </a>
+            <div class="menu-header">المشتريات</div>
+            <a href="../purchases/receipt.html" class="menu-item">
+                <i class="bi bi-box-seam"></i>
+                <span>إذن استلام</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-cart-plus"></i>
+                <span>فاتورة شراء</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-shop"></i>
+                <span>الموردين</span>
+            </a>
+            <div class="menu-header">المخزون</div>
+            <a href="#" class="menu-item">
+                <i class="bi bi-box"></i>
+                <span>المنتجات</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-building"></i>
+                <span>المخازن</span>
+            </a>
+            <div class="menu-header">الإعدادات</div>
+            <a href="#" class="menu-item">
+                <i class="bi bi-gear"></i>
+                <span>إعدادات النظام</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-person"></i>
+                <span>المستخدمين</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header no-print">
+            <button class="btn mobile-menu-toggle d-md-none">
+                <i class="bi bi-list"></i>
+            </button>
+            <h1 class="page-title">معاينة فاتورة المبيعات</h1>
+            <div class="header-actions">
+                <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell position-relative">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                            </span>
+                        </i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                        <li><h6 class="dropdown-header">الإشعارات</h6></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> المنتج "سكر" وصل للحد الأدنى</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle-fill text-info me-2"></i> تم تحديث أسعار المنتجات</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-check-circle-fill text-success me-2"></i> تم استلام طلبية جديدة</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center" href="#">عرض كل الإشعارات</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown ms-3">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><h6 class="dropdown-header">أحمد محمد</h6></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> الملف الشخصي</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> الإعدادات</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i> تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons (Only visible in browser) -->
+        <div class="action-buttons no-print">
+            <button class="btn btn-primary me-2" onclick="window.print()">
+                <i class="bi bi-printer"></i> طباعة الفاتورة
+            </button>
+            <button class="btn btn-success me-2" id="saveInvoiceBtn">
+                <i class="bi bi-save"></i> حفظ الفاتورة
+            </button>
+            <button class="btn btn-secondary me-2" id="editInvoiceBtn" onclick="window.location.href='invoice.html'">
+                <i class="bi bi-pencil"></i> تعديل الفاتورة
+            </button>
+            <button class="btn btn-info me-2" id="sendInvoiceBtn">
+                <i class="bi bi-envelope"></i> إرسال بالبريد الإلكتروني
+            </button>
+            <button class="btn btn-outline-secondary" id="downloadPdfBtn">
+                <i class="bi bi-file-earmark-pdf"></i> تحميل PDF
+            </button>
+        </div>
+
+        <!-- Invoice Preview -->
+        <div class="invoice-container">
+            <!-- Company Logo and Info -->
+            <div class="invoice-header row">
+                <div class="col-md-6">
+                    <img src="../assets/logo.png" alt="شعار الشركة" class="invoice-logo">
+                    <h2 class="invoice-title">شركة بيزتراك للتجارة</h2>
+                    <p class="invoice-subtitle">سجل تجاري: 123456789</p>
+                    <p class="invoice-subtitle">رقم ضريبي: 987654321</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h2 class="invoice-title">فاتورة مبيعات</h2>
+                    <p class="invoice-subtitle">رقم الفاتورة: <span id="previewInvoiceNumber">INV-2025006</span></p>
+                    <p class="invoice-subtitle">التاريخ: <span id="previewInvoiceDate">07-05-2025</span></p>
+                    <p class="invoice-subtitle">الموظف: <span id="previewEmployee">أحمد محمد</span></p>
+                </div>
+            </div>
+
+            <!-- Customer Details -->
+            <div class="invoice-details">
+                <h5 class="invoice-details-title">بيانات العميل</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>الاسم:</strong> <span id="previewCustomerName">شركة الأمل التجارية</span></p>
+                        <p class="mb-1"><strong>العنوان:</strong> <span id="previewCustomerAddress">القاهرة - المعادي - شارع 9</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>رقم الهاتف:</strong> <span id="previewCustomerPhone">01012345678</span></p>
+                        <p class="mb-1"><strong>البريد الإلكتروني:</strong> <span id="previewCustomerEmail">info@alamal.com</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Details (for credit customers) -->
+            <div class="invoice-details" id="shippingDetailsSection">
+                <h5 class="invoice-details-title">بيانات الشحن</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>شركة الشحن:</strong> <span id="previewShippingCompany">أرامكس</span></p>
+                        <p class="mb-1"><strong>عنوان الشحن:</strong> <span id="previewShippingAddress">القاهرة - المعادي - شارع 9</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>تاريخ الشحن:</strong> <span id="previewShippingDate">08-05-2025</span></p>
+                        <p class="mb-1"><strong>تاريخ الاستلام المتوقع:</strong> <span id="previewExpectedDeliveryDate">10-05-2025</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <table class="table table-striped invoice-table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">المنتج</th>
+                        <th scope="col">الوحدة</th>
+                        <th scope="col">الكمية</th>
+                        <th scope="col">السعر</th>
+                        <th scope="col">الخصم</th>
+                        <th scope="col">الإجمالي</th>
+                    </tr>
+                </thead>
+                <tbody id="previewProductsTableBody">
+                    <tr>
+                        <td>1</td>
+                        <td>سكر</td>
+                        <td>كيلو</td>
+                        <td>10</td>
+                        <td>25.00</td>
+                        <td>0.00</td>
+                        <td>250.00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>أرز</td>
+                        <td>كيلو</td>
+                        <td>5</td>
+                        <td>30.00</td>
+                        <td>0.00</td>
+                        <td>150.00</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>زيت</td>
+                        <td>لتر</td>
+                        <td>3</td>
+                        <td>60.00</td>
+                        <td>10.00</td>
+                        <td>170.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Invoice Summary -->
+            <div class="invoice-summary">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>ملاحظات:</strong></p>
+                        <p id="previewNotes">شكراً لتعاملكم معنا. نتمنى لكم تجربة تسوق ممتعة.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="invoice-summary-item">
+                            <span>إجمالي المنتجات:</span>
+                            <span id="previewSubtotal">570.00 ج.م</span>
+                        </div>
+                        <div class="invoice-summary-item">
+                            <span>الخصم:</span>
+                            <span id="previewDiscount">10.00 ج.م</span>
+                        </div>
+                        <div class="invoice-summary-item">
+                            <span>الضريبة (14%):</span>
+                            <span id="previewTax">78.40 ج.م</span>
+                        </div>
+                        <div class="invoice-summary-item invoice-summary-total">
+                            <span>الإجمالي:</span>
+                            <span id="previewTotal">638.40 ج.م</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Information -->
+            <div class="invoice-details" id="paymentDetailsSection">
+                <h5 class="invoice-details-title">بيانات الدفع</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>طريقة الدفع:</strong> <span id="previewPaymentMethod">نقدي</span></p>
+                        <p class="mb-1"><strong>تاريخ الدفع:</strong> <span id="previewPaymentDate">07-05-2025</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-1"><strong>المبلغ المدفوع:</strong> <span id="previewPaidAmount">638.40 ج.م</span></p>
+                        <p class="mb-1"><strong>المبلغ المتبقي:</strong> <span id="previewRemainingAmount">0.00 ج.م</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barcode and QR Code -->
+            <div class="invoice-barcode">
+                <img src="../assets/barcode-placeholder.png" alt="باركود الفاتورة" height="50">
+            </div>
+
+            <!-- Footer -->
+            <div class="invoice-footer">
+                <p>تم إنشاء هذه الفاتورة بواسطة نظام BizTrack لإدارة المبيعات والمخزون</p>
+                <p>للاستفسار: info@biztrack.com | هاتف: 0123456789</p>
+                <p>© 2025 جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modal Utilities -->
+    <script src="../js/modals.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    <!-- Invoice Preview JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get invoice data from localStorage or URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const invoiceId = urlParams.get('id');
+            
+            // If we have an invoice ID, fetch the data
+            if (invoiceId) {
+                // In a real application, you would fetch the invoice data from the server
+                // For now, we'll use sample data
+                fetchInvoiceData(invoiceId);
+            }
+            
+            // Setup event listeners
+            document.getElementById('saveInvoiceBtn').addEventListener('click', function() {
+                showSuccessMessage('تم حفظ الفاتورة بنجاح');
+            });
+            
+            document.getElementById('sendInvoiceBtn').addEventListener('click', function() {
+                showPromptDialog(
+                    'إرسال الفاتورة بالبريد الإلكتروني',
+                    'أدخل البريد الإلكتروني للمستلم:',
+                    'email',
+                    function(email) {
+                        if (email) {
+                            showSuccessMessage('تم إرسال الفاتورة إلى ' + email + ' بنجاح');
+                        }
+                    }
+                );
+            });
+            
+            document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+                showSuccessMessage('جاري تحميل الفاتورة بصيغة PDF');
+                // In a real application, you would generate and download the PDF
+            });
+        });
+        
+        function fetchInvoiceData(invoiceId) {
+            // In a real application, this would be an API call
+            // For now, we'll use sample data
+            
+            // Sample data - in a real app, this would come from your backend
+            const invoiceData = {
+                invoiceNumber: 'INV-2025006',
+                invoiceDate: '07-05-2025',
+                employee: 'أحمد محمد',
+                customer: {
+                    name: 'شركة الأمل التجارية',
+                    address: 'القاهرة - المعادي - شارع 9',
+                    phone: '01012345678',
+                    email: 'info@alamal.com'
+                },
+                shipping: {
+                    company: 'أرامكس',
+                    address: 'القاهرة - المعادي - شارع 9',
+                    date: '08-05-2025',
+                    expectedDelivery: '10-05-2025'
+                },
+                products: [
+                    { id: 1, name: 'سكر', unit: 'كيلو', quantity: 10, price: 25.00, discount: 0, total: 250.00 },
+                    { id: 2, name: 'أرز', unit: 'كيلو', quantity: 5, price: 30.00, discount: 0, total: 150.00 },
+                    { id: 3, name: 'زيت', unit: 'لتر', quantity: 3, price: 60.00, discount: 10, total: 170.00 }
+                ],
+                subtotal: 570.00,
+                discount: 10.00,
+                tax: 78.40,
+                total: 638.40,
+                payment: {
+                    method: 'نقدي',
+                    date: '07-05-2025',
+                    paid: 638.40,
+                    remaining: 0.00
+                },
+                notes: 'شكراً لتعاملكم معنا. نتمنى لكم تجربة تسوق ممتعة.'
+            };
+            
+            // Update the UI with the invoice data
+            updateInvoicePreview(invoiceData);
+        }
+        
+        function updateInvoicePreview(data) {
+            // Update invoice header
+            document.getElementById('previewInvoiceNumber').textContent = data.invoiceNumber;
+            document.getElementById('previewInvoiceDate').textContent = data.invoiceDate;
+            document.getElementById('previewEmployee').textContent = data.employee;
+            
+            // Update customer details
+            document.getElementById('previewCustomerName').textContent = data.customer.name;
+            document.getElementById('previewCustomerAddress').textContent = data.customer.address;
+            document.getElementById('previewCustomerPhone').textContent = data.customer.phone;
+            document.getElementById('previewCustomerEmail').textContent = data.customer.email;
+            
+            // Update shipping details
+            document.getElementById('previewShippingCompany').textContent = data.shipping.company;
+            document.getElementById('previewShippingAddress').textContent = data.shipping.address;
+            document.getElementById('previewShippingDate').textContent = data.shipping.date;
+            document.getElementById('previewExpectedDeliveryDate').textContent = data.shipping.expectedDelivery;
+            
+            // Update products table
+            const tableBody = document.getElementById('previewProductsTableBody');
+            tableBody.innerHTML = '';
+            
+            data.products.forEach((product, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${product.name}</td>
+                    <td>${product.unit}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.price.toFixed(2)}</td>
+                    <td>${product.discount.toFixed(2)}</td>
+                    <td>${product.total.toFixed(2)}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            // Update summary
+            document.getElementById('previewNotes').textContent = data.notes;
+            document.getElementById('previewSubtotal').textContent = data.subtotal.toFixed(2) + ' ج.م';
+            document.getElementById('previewDiscount').textContent = data.discount.toFixed(2) + ' ج.م';
+            document.getElementById('previewTax').textContent = data.tax.toFixed(2) + ' ج.م';
+            document.getElementById('previewTotal').textContent = data.total.toFixed(2) + ' ج.م';
+            
+            // Update payment details
+            document.getElementById('previewPaymentMethod').textContent = data.payment.method;
+            document.getElementById('previewPaymentDate').textContent = data.payment.date;
+            document.getElementById('previewPaidAmount').textContent = data.payment.paid.toFixed(2) + ' ج.م';
+            document.getElementById('previewRemainingAmount').textContent = data.payment.remaining.toFixed(2) + ' ج.م';
+            
+            // Show/hide sections based on customer type
+            if (data.customer.type === 'cash') {
+                document.getElementById('shippingDetailsSection').style.display = 'none';
+            } else {
+                document.getElementById('shippingDetailsSection').style.display = 'block';
+            }
+        }
+        
+        // Helper functions for showing messages
+        function showSuccessMessage(message) {
+            // Check if modals.js is loaded and has showMessage function
+            if (typeof showMessage === 'function') {
+                showMessage('نجاح', message, 'success');
+            } else {
+                alert(message);
+            }
+        }
+        
+        function showPromptDialog(title, message, inputType, callback) {
+            // Check if modals.js is loaded and has showPromptDialog function
+            if (typeof showPromptDialog === 'function') {
+                showPromptDialog(title, message, inputType, callback);
+            } else {
+                const result = prompt(message);
+                if (callback && typeof callback === 'function') {
+                    callback(result);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
