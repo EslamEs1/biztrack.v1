@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BizTrack - لوحة التحكم</title>
+    <title>BizTrack - إدارة الفواتير</title>
     <!-- Bootstrap RTL CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- Sidebar -->
@@ -18,16 +18,16 @@
             <h3>BizTrack</h3>
         </div>
         <div class="menu">
-            <a href="index.html" class="menu-item active">
+            <a href="../index.html" class="menu-item">
                 <i class="bi bi-speedometer2"></i>
                 <span>لوحة التحكم</span>
             </a>
             <div class="menu-header">المبيعات</div>
-            <a href="sales/invoice.html" class="menu-item">
+            <a href="invoice.html" class="menu-item">
                 <i class="bi bi-receipt"></i>
                 <span>فاتورة مبيعات</span>
             </a>
-            <a href="sales/invoices.html" class="menu-item">
+            <a href="invoices.html" class="menu-item active">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>إدارة الفواتير</span>
             </a>
@@ -36,7 +36,7 @@
                 <span>العملاء</span>
             </a>
             <div class="menu-header">المشتريات</div>
-            <a href="purchases/receipt.html" class="menu-item">
+            <a href="../purchases/receipt.html" class="menu-item">
                 <i class="bi bi-box-seam"></i>
                 <span>إذن استلام</span>
             </a>
@@ -76,75 +76,20 @@
             <button class="btn mobile-menu-toggle d-md-none">
                 <i class="bi bi-list"></i>
             </button>
-            <h1 class="page-title">لوحة التحكم</h1>
+            <h1 class="page-title">إدارة الفواتير</h1>
             <div class="header-actions">
-                <div class="dropdown">
-                    <button class="btn btn-link dropdown-toggle" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-bell position-relative">
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                3
-                            </span>
-                        </i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
-                        <li><h6 class="dropdown-header">الإشعارات</h6></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> المنتج "سكر" وصل للحد الأدنى</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-clock-fill text-danger me-2"></i> فاتورة متأخرة السداد #1234</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle-fill text-info me-2"></i> تم تحديث النظام إلى الإصدار 2.1</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-center" href="#">عرض كل الإشعارات</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown ms-3">
-                    <button class="btn btn-link dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><h6 class="dropdown-header">أحمد محمد</h6></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> الملف الشخصي</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> الإعدادات</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i> تسجيل الخروج</a></li>
-                    </ul>
-                </div>
+                <a href="invoice.html" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> فاتورة جديدة
+                </a>
             </div>
         </div>
 
-        <!-- Quick Actions -->
-        <div class="quick-actions">
-            <a href="sales/invoice.html" class="quick-action-btn">
-                <i class="bi bi-receipt"></i>
-                <div>فاتورة مبيعات جديدة</div>
-            </a>
-            <a href="purchases/receipt.html" class="quick-action-btn">
-                <i class="bi bi-box-seam"></i>
-                <div>إذن استلام جديد</div>
-            </a>
-            <a href="#" class="quick-action-btn">
-                <i class="bi bi-cart-plus"></i>
-                <div>فاتورة شراء جديدة</div>
-            </a>
-            <a href="#" class="quick-action-btn">
-                <i class="bi bi-people"></i>
-                <div>إضافة عميل</div>
-            </a>
-        </div>
-
-        <!-- Dashboard Cards -->
+        <!-- Invoice Stats -->
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <div class="dashboard-card position-relative">
-                    <div class="card-title">إجمالي المبيعات اليوم</div>
-                    <div class="card-value">15,750 ج.م</div>
-                    <div class="card-icon">
-                        <i class="bi bi-cash"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="dashboard-card position-relative">
-                    <div class="card-title">عدد الفواتير اليوم</div>
-                    <div class="card-value">24</div>
+                    <div class="card-title">إجمالي الفواتير</div>
+                    <div class="card-value">120</div>
                     <div class="card-icon">
                         <i class="bi bi-receipt"></i>
                     </div>
@@ -152,47 +97,86 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="dashboard-card position-relative">
-                    <div class="card-title">فواتير غير مدفوعة</div>
+                    <div class="card-title">غير مدفوعة</div>
+                    <div class="card-value">15</div>
+                    <div class="card-icon">
+                        <i class="bi bi-hourglass-split"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="dashboard-card position-relative">
+                    <div class="card-title">مدفوعة</div>
+                    <div class="card-value">98</div>
+                    <div class="card-icon">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="dashboard-card position-relative">
+                    <div class="card-title">متأخرة السداد</div>
                     <div class="card-value">7</div>
                     <div class="card-icon">
                         <i class="bi bi-exclamation-circle"></i>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="dashboard-card position-relative">
-                    <div class="card-title">منتجات منخفضة المخزون</div>
-                    <div class="card-value">5</div>
-                    <div class="card-icon">
-                        <i class="bi bi-box"></i>
-                    </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="form-container mb-4">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label for="invoiceNumber" class="form-label">رقم الفاتورة</label>
+                    <input type="text" class="form-control" id="invoiceNumber">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="customerName" class="form-label">اسم العميل</label>
+                    <input type="text" class="form-control" id="customerName">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="dateFrom" class="form-label">من تاريخ</label>
+                    <input type="date" class="form-control" id="dateFrom">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="dateTo" class="form-label">إلى تاريخ</label>
+                    <input type="date" class="form-control" id="dateTo">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label for="paymentMethod" class="form-label">طريقة الدفع</label>
+                    <select class="form-select" id="paymentMethod">
+                        <option value="" selected>الكل</option>
+                        <option value="cash">نقدي</option>
+                        <option value="bank">تحويل بنكي</option>
+                        <option value="check">شيك</option>
+                        <option value="vodafone">فودافون كاش</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="paymentStatus" class="form-label">حالة الدفع</label>
+                    <select class="form-select" id="paymentStatus">
+                        <option value="" selected>الكل</option>
+                        <option value="paid">مدفوعة</option>
+                        <option value="pending">قيد الانتظار</option>
+                        <option value="overdue">متأخرة</option>
+                    </select>
+                </div>
+                <div class="col-md-6 d-flex align-items-end">
+                    <button type="button" class="btn btn-primary me-2">
+                        <i class="bi bi-search"></i> بحث
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                        <i class="bi bi-arrow-clockwise"></i> إعادة تعيين
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Charts -->
-        <div class="row">
-            <div class="col-md-8">
-                <div class="dashboard-card">
-                    <div class="card-title">المبيعات الشهرية</div>
-                    <div class="chart-container">
-                        <canvas id="monthlySalesChart"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="dashboard-card">
-                    <div class="card-title">توزيع المبيعات</div>
-                    <div class="chart-container">
-                        <canvas id="salesDistributionChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Recent Invoices -->
-        <div class="dashboard-card">
-            <div class="card-title">أحدث الفواتير</div>
+        <!-- Invoices Table -->
+        <div class="form-container">
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -223,6 +207,9 @@
                                 <button class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="طباعة">
                                     <i class="bi bi-printer"></i>
                                 </button>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="حذف">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -239,6 +226,9 @@
                                 </button>
                                 <button class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="طباعة">
                                     <i class="bi bi-printer"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="حذف">
+                                    <i class="bi bi-trash"></i>
                                 </button>
                             </td>
                         </tr>
@@ -260,6 +250,9 @@
                                 <button class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="طباعة">
                                     <i class="bi bi-printer"></i>
                                 </button>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="حذف">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -280,6 +273,9 @@
                                 <button class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="طباعة">
                                     <i class="bi bi-printer"></i>
                                 </button>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="حذف">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -297,30 +293,35 @@
                                 <button class="btn btn-sm btn-success" data-bs-toggle="tooltip" title="طباعة">
                                     <i class="bi bi-printer"></i>
                                 </button>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="tooltip" title="حذف">
+                                    <i class="bi bi-trash"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="text-center">
-                <a href="sales/invoices.html" class="btn btn-primary">عرض كل الفواتير</a>
-            </div>
-        </div>
 
-        <!-- Low Stock Alert -->
-        <div class="alert alert-warning">
-            <i class="bi bi-exclamation-triangle-fill alert-icon"></i>
-            <strong>تنبيه!</strong> هناك 5 منتجات وصلت للحد الأدنى للمخزون. <a href="#" class="alert-link">عرض التفاصيل</a>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">السابق</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">التالي</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Modal Utilities -->
-    <script src="js/modals.js"></script>
     <!-- Custom JS -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

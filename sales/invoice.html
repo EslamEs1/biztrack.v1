@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizTrack - فاتورة مبيعات</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <h3>BizTrack</h3>
+        </div>
+        <div class="menu">
+            <a href="../index.html" class="menu-item">
+                <i class="bi bi-speedometer2"></i>
+                <span>لوحة التحكم</span>
+            </a>
+            <div class="menu-header">المبيعات</div>
+            <a href="invoice.html" class="menu-item active">
+                <i class="bi bi-receipt"></i>
+                <span>فاتورة مبيعات</span>
+            </a>
+            <a href="invoices.html" class="menu-item">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>إدارة الفواتير</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-people"></i>
+                <span>العملاء</span>
+            </a>
+            <div class="menu-header">المشتريات</div>
+            <a href="../purchases/receipt.html" class="menu-item">
+                <i class="bi bi-box-seam"></i>
+                <span>إذن استلام</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-cart-plus"></i>
+                <span>فاتورة شراء</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-shop"></i>
+                <span>الموردين</span>
+            </a>
+            <div class="menu-header">المخزون</div>
+            <a href="#" class="menu-item">
+                <i class="bi bi-box"></i>
+                <span>المنتجات</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-building"></i>
+                <span>المخازن</span>
+            </a>
+            <div class="menu-header">الإعدادات</div>
+            <a href="#" class="menu-item">
+                <i class="bi bi-gear"></i>
+                <span>إعدادات النظام</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="bi bi-person"></i>
+                <span>المستخدمين</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <button class="btn mobile-menu-toggle d-md-none">
+                <i class="bi bi-list"></i>
+            </button>
+            <h1 class="page-title">فاتورة مبيعات جديدة</h1>
+            <div class="header-actions">
+                <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell position-relative">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                3
+                            </span>
+                        </i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                        <li><h6 class="dropdown-header">الإشعارات</h6></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> المنتج "سكر" وصل للحد الأدنى</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-clock-fill text-danger me-2"></i> فاتورة متأخرة السداد #1234</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle-fill text-info me-2"></i> تم تحديث النظام إلى الإصدار 2.1</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center" href="#">عرض كل الإشعارات</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown ms-3">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><h6 class="dropdown-header">أحمد محمد</h6></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> الملف الشخصي</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> الإعدادات</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i> تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invoice Form -->
+        <form id="invoiceForm">
+            <div class="form-container">
+                <!-- Invoice Header Section -->
+                <div class="form-section">
+                    <div class="row">
+                        <div class="col-md-3 mb-3">
+                            <label for="invoiceNumber" class="form-label">رقم الفاتورة</label>
+                            <input type="text" class="form-control" id="invoiceNumber" value="INV-2025006" readonly>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="invoiceDate" class="form-label">تاريخ الفاتورة</label>
+                            <input type="date" class="form-control" id="invoiceDate" value="2025-05-07" readonly>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="employee" class="form-label">الموظف المسؤول</label>
+                            <select class="form-select" id="employee">
+                                <option value="1" selected>أحمد محمد</option>
+                                <option value="2">محمد علي</option>
+                                <option value="3">سارة أحمد</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="pricingType" class="form-label">نوع التسعير</label>
+                            <select class="form-select" id="pricingType">
+                                <option value="retail" selected>قطاعي</option>
+                                <option value="wholesale">جملة</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Section -->
+                <div class="form-section">
+                    <div class="form-section-title">بيانات العميل</div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="customerType" id="cashCustomer" value="cash" checked>
+                                <label class="form-check-label" for="cashCustomer">عميل نقدي</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="customerType" id="creditCustomer" value="credit">
+                                <label class="form-check-label" for="creditCustomer">عميل آجل</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cash Customer Fields -->
+                    <div id="cashCustomerFields">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label for="customerName" class="form-label">اسم العميل</label>
+                                <input type="text" class="form-control" id="customerName">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="customerPhone" class="form-label">رقم الهاتف</label>
+                                <input type="tel" class="form-control" id="customerPhone">
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <label for="customerGovernorate" class="form-label">المحافظة</label>
+                                <select class="form-select" id="customerGovernorate">
+                                    <option value="" selected>اختر...</option>
+                                    <option value="Cairo">القاهرة</option>
+                                    <option value="Giza">الجيزة</option>
+                                    <option value="Alexandria">الإسكندرية</option>
+                                    <option value="Sharkia">الشرقية</option>
+                                    <option value="Gharbia">الغربية</option>
+                                    <option value="Dakahlia">الدقهلية</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <label for="customerCity" class="form-label">المركز</label>
+                                <input type="text" class="form-control" id="customerCity">
+                            </div>
+                            <div class="col-md-2 mb-3">
+                                <label for="customerVillage" class="form-label">القرية</label>
+                                <input type="text" class="form-control" id="customerVillage">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Credit Customer Fields -->
+                    <div id="creditCustomerFields" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="registeredCustomer" class="form-label">العميل</label>
+                                <select class="form-select" id="registeredCustomer">
+                                    <option value="" selected>اختر العميل...</option>
+                                    <option value="1">شركة الأمل التجارية</option>
+                                    <option value="2">مؤسسة النور</option>
+                                    <option value="3">شركة الرواد</option>
+                                    <option value="4">محلات السعادة</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="shippingDetails" class="form-label">تفاصيل الشحن</label>
+                                <input type="text" class="form-control" id="shippingDetails" placeholder="عنوان الشحن أو ملاحظات التوصيل">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">رصيد العميل</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="5,200.00" readonly>
+                                    <span class="input-group-text">ج.م</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">الحد الائتماني</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="10,000.00" readonly>
+                                    <span class="input-group-text">ج.م</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">المتاح</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="4,800.00" readonly>
+                                    <span class="input-group-text">ج.م</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div class="form-section">
+                    <div class="form-section-title">المنتجات</div>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="productBarcode" class="form-label">باركود المنتج</label>
+                            <input type="text" class="form-control" id="productBarcode" placeholder="امسح الباركود أو أدخل الكود يدويًا">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="productSelect" class="form-label">اختر المنتج</label>
+                            <select class="form-select" id="productSelect">
+                                <option value="" selected>اختر منتج...</option>
+                                <!-- Products will be added dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label d-block">&nbsp;</label>
+                            <button type="button" class="btn btn-primary" id="addProductBtn">
+                                <i class="bi bi-plus-circle"></i> إضافة منتج
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered invoice-products-table" id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>باركود</th>
+                                    <th>كود</th>
+                                    <th>المنتج</th>
+                                    <th>المخزن</th>
+                                    <th>الوحدة</th>
+                                    <th>الكمية</th>
+                                    <th>السعر</th>
+                                    <th>الخصم %</th>
+                                    <th>الخصم (مبلغ)</th>
+                                    <th>الإجمالي</th>
+                                    <th>إجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Products will be added here dynamically -->
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="9" class="text-start">الإجمالي</td>
+                                    <td colspan="2" id="invoiceTotal">0.00</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label for="invoiceNotes" class="form-label">ملاحظات</label>
+                            <textarea class="form-control" id="invoiceNotes" rows="3"></textarea>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-end justify-content-end">
+                            <button type="button" class="btn btn-outline-secondary me-2">
+                                <i class="bi bi-eye"></i> معاينة الفاتورة
+                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+                                <i class="bi bi-arrow-left-circle"></i> متابعة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Change Price Password Modal -->
+        <div class="modal fade" id="changePriceModal" tabindex="-1" aria-labelledby="changePriceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="changePriceModalLabel">تأكيد تغيير السعر</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>يرجى إدخال اسم المستخدم وكلمة المرور للسماح بتغيير السعر</p>
+                        <div class="mb-3">
+                            <label for="priceChangeUsername" class="form-label">اسم المستخدم</label>
+                            <input type="text" class="form-control" id="priceChangeUsername">
+                        </div>
+                        <div class="mb-3">
+                            <label for="priceChangePassword" class="form-label">كلمة المرور</label>
+                            <input type="password" class="form-control" id="priceChangePassword">
+                        </div>
+                        <input type="hidden" id="priceChangeRowId">
+                        <input type="hidden" id="priceChangeNewValue">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                        <button type="button" class="btn btn-primary" id="confirmPriceChange">تأكيد</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Modal -->
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentModalLabel">طرق الدفع</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Invoice Summary -->
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="mb-1 text-muted">رقم الفاتورة</p>
+                                        <p class="fw-bold">INV-2025006</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="mb-1 text-muted">التاريخ</p>
+                                        <p class="fw-bold">07-05-2025</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="mb-1 text-muted">العميل</p>
+                                        <p class="fw-bold" id="paymentCustomerName">-</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p class="mb-1 text-muted">الإجمالي</p>
+                                        <p class="fw-bold" id="paymentTotalAmount">0.00 ج.م</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods -->
+                        <div class="row mb-4">
+                            <div class="col-md-3">
+                                <div class="payment-method-card selected" data-method="cash">
+                                    <i class="bi bi-cash"></i>
+                                    <span>نقدي</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="payment-method-card" data-method="bank">
+                                    <i class="bi bi-bank"></i>
+                                    <span>تحويل بنكي</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="payment-method-card" data-method="check">
+                                    <i class="bi bi-credit-card"></i>
+                                    <span>شيك</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="payment-method-card" data-method="vodafone">
+                                    <i class="bi bi-phone"></i>
+                                    <span>فودافون كاش</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="paymentMethod" value="cash">
+
+                        <!-- Payment Details -->
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="paymentAmount" class="form-label">المبلغ الإجمالي</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="paymentAmount" readonly>
+                                    <span class="input-group-text">ج.م</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="paidAmount" class="form-label">المبلغ المدفوع</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="paidAmount" value="0.00" step="0.01" onchange="calculateRemainingAmount()">
+                                    <span class="input-group-text">ج.م</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="remainingAmount" class="form-label">المبلغ المتبقي</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="remainingAmount" readonly>
+                                    <span class="input-group-text">ج.م</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="paymentDate" class="form-label">تاريخ الدفع</label>
+                                <input type="date" class="form-control" id="paymentDate" value="2025-05-07">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="paymentNotes" class="form-label">ملاحظات الدفع</label>
+                                <textarea class="form-control" id="paymentNotes" rows="1"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Bank Transfer Fields -->
+                        <div id="bankTransferFields" style="display: none;">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="bankName" class="form-label">اسم البنك</label>
+                                    <select class="form-select" id="bankName">
+                                        <option value="" selected>اختر البنك...</option>
+                                        <option value="NBE">البنك الأهلي المصري</option>
+                                        <option value="CIB">البنك التجاري الدولي</option>
+                                        <option value="QNB">بنك قطر الوطني</option>
+                                        <option value="MISR">بنك مصر</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="transferNumber" class="form-label">رقم التحويل</label>
+                                    <input type="text" class="form-control" id="transferNumber">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Check Fields -->
+                        <div id="checkFields" style="display: none;">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="checkNumber" class="form-label">رقم الشيك</label>
+                                    <input type="text" class="form-control" id="checkNumber">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="checkBank" class="form-label">البنك المسحوب عليه</label>
+                                    <select class="form-select" id="checkBank">
+                                        <option value="" selected>اختر البنك...</option>
+                                        <option value="NBE">البنك الأهلي المصري</option>
+                                        <option value="CIB">البنك التجاري الدولي</option>
+                                        <option value="QNB">بنك قطر الوطني</option>
+                                        <option value="MISR">بنك مصر</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="checkDueDate" class="form-label">تاريخ الاستحقاق</label>
+                                    <input type="date" class="form-control" id="checkDueDate">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vodafone Cash Fields -->
+                        <div id="vodafoneCashFields" style="display: none;">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="phoneNumber" class="form-label">رقم الهاتف</label>
+                                    <input type="tel" class="form-control" id="phoneNumber">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="transactionId" class="form-label">رقم العملية</label>
+                                    <input type="text" class="form-control" id="transactionId">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document Upload -->
+                        <div id="paymentDocumentField" style="display: none;">
+                            <div class="mb-3">
+                                <label for="paymentDocument" class="form-label">إرفاق مستند</label>
+                                <input class="form-control" type="file" id="paymentDocument">
+                            </div>
+                        </div>
+
+                        <!-- Remaining Amount Alert -->
+                        <div class="alert alert-warning" id="remainingAlert" style="display: none;">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            <strong>تنبيه!</strong> هناك مبلغ متبقي. هل تريد المتابعة مع تسجيل المبلغ المتبقي كدين على العميل؟
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                        <button type="button" class="btn btn-primary" id="confirmPayment">تأكيد الدفع</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Low Stock Alert Modal -->
+        <div class="modal fade" id="lowStockModal" tabindex="-1" aria-labelledby="lowStockModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-dark">
+                        <h5 class="modal-title" id="lowStockModalLabel">تنبيه المخزون</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-exclamation-triangle-fill text-warning me-3" style="font-size: 2rem;"></i>
+                            <div>
+                                <p class="mb-1">الكمية المطلوبة غير متوفرة في المخزن!</p>
+                                <p class="mb-0"><span id="productNameAlert"></span>: المتاح <span id="availableQuantity"></span> <span id="unitName"></span> فقط.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modal Utilities -->
+    <script src="../js/modals.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
